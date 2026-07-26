@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f1e8">
+    <meta name="description" content="%%DESCRIPTION%%">
+
+    <title>%%TITLE%%</title>
+    <link rel="canonical" href="%%CANONICAL_URL%%">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="%%TITLE%%">
+    <meta property="og:description" content="%%DESCRIPTION%%">
+    <meta property="og:url" content="%%CANONICAL_URL%%">
+    <meta property="og:image" content="%%SOCIAL_IMAGE%%">
+    <meta property="og:image:alt" content="%%PROFILE_NAME%% — Research, Education, Community">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="%%TITLE%%">
+    <meta name="twitter:description" content="%%DESCRIPTION%%">
+    <meta name="twitter:image" content="%%SOCIAL_IMAGE%%">
+
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script src="assets/js/site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header" data-site-header>
+      <div class="shell nav-shell">
+        <a class="wordmark" href="#top" aria-label="%%PROFILE_NAME%%, home">
+          <span class="wordmark-mark" aria-hidden="true">YG</span>
+          <span class="wordmark-name">%%PROFILE_SHORT_NAME%%</span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+          <span>Menu</span>
+          <span class="menu-toggle-lines" aria-hidden="true"></span>
+        </button>
+
+        <nav id="site-navigation" class="site-nav" aria-label="Primary navigation">
+          <a href="#research">Research</a>
+          <a href="#teaching">Teaching</a>
+          <a href="#leadership">Leadership</a>
+          <a href="#about">About</a>
+          <a class="nav-external" href="%%GITHUB_URL%%" target="_blank" rel="noreferrer">
+            GitHub <span aria-hidden="true">↗</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow reveal">%%PROFILE_EYEBROW%%</p>
+          <h1 id="hero-title" class="hero-title reveal">
+            <span>Turning complex signals</span>
+            <em>into shared progress.</em>
+          </h1>
+          <p class="hero-intro reveal">%%PROFILE_INTRODUCTION%%</p>
+
+          <div class="hero-actions reveal">
+            <a class="button button-primary" href="#research">Explore the work</a>
+            <a class="button button-text" href="#teaching">
+              See the courses <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+
+        <aside class="signal-panel reveal" aria-label="Areas of work">
+          <div class="signal-field" aria-hidden="true">
+            <span class="signal-orbit signal-orbit-one"></span>
+            <span class="signal-orbit signal-orbit-two"></span>
+            <span class="signal-dot signal-dot-one"></span>
+            <span class="signal-dot signal-dot-two"></span>
+            <span class="signal-dot signal-dot-three"></span>
+          </div>
+
+          <p class="signal-label">Signals → Service</p>
+          <ol class="signal-list">
+            %%SIGNAL_MAP%%
+          </ol>
+        </aside>
+
+        <dl class="hero-stats reveal">
+          %%STATS%%
+        </dl>
+      </section>
+
+      <section class="orientation section-block" aria-labelledby="orientation-title">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <p class="section-index">A portfolio in three parts</p>
+            <h2 id="orientation-title">Science, learning, and service reinforce one another.</h2>
+          </div>
+
+          <div class="pillar-grid">
+            %%PILLARS%%
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="research section-block" aria-labelledby="research-title">
+        <div class="shell">
+          <div class="section-heading section-heading-split reveal">
+            <div>
+              <p class="section-index">01 · Research</p>
+              <h2 id="research-title">Following the signal.</h2>
+            </div>
+            <p class="section-deck">
+              Biomedical questions become useful when the data, context, and analytical choices stay connected.
+            </p>
+          </div>
+
+          <div class="research-grid">
+            %%RESEARCH%%
+          </div>
+        </div>
+      </section>
+
+      <section id="teaching" class="teaching section-block" aria-labelledby="teaching-title">
+        <div class="shell">
+          <div class="section-heading section-heading-split reveal">
+            <div>
+              <p class="section-index">02 · Teaching & curriculum</p>
+              <h2 id="teaching-title">Designing the whole learning journey.</h2>
+            </div>
+            <p class="section-deck">
+              The role goes beyond instruction: each program begins with curriculum design and continues into the classroom.
+            </p>
+          </div>
+
+          <div class="teaching-layout">
+            <aside class="teaching-statement reveal">
+              <p class="statement-kicker">Course design + instruction</p>
+              <blockquote>
+                “I don’t just teach a course. I design the path through it.”
+              </blockquote>
+              <p>
+                Four programs, built for their learning setting and taught from start to finish.
+              </p>
+            </aside>
+
+            <ol class="teaching-timeline">
+              %%TEACHING%%
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="leadership" class="leadership section-block" aria-labelledby="leadership-title">
+        <div class="shell">
+          <div class="section-heading section-heading-split reveal">
+            <div>
+              <p class="section-index">03 · Leadership & service</p>
+              <h2 id="leadership-title">Building the communities around the work.</h2>
+            </div>
+            <p class="section-deck">
+              Volunteer roles across technology, science, education, and alumni communities in North Carolina.
+            </p>
+          </div>
+
+          <div class="leadership-grid">
+            %%LEADERSHIP%%
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about section-block" aria-labelledby="about-title">
+        <div class="shell about-grid">
+          <div class="about-heading reveal">
+            <p class="section-index">04 · About</p>
+            <p class="about-eyebrow">%%ABOUT_EYEBROW%%</p>
+            <h2 id="about-title">%%ABOUT_HEADLINE%%</h2>
+          </div>
+
+          <div class="about-copy reveal">
+            %%ABOUT_PARAGRAPHS%%
+            <a class="button button-text about-link" href="%%GITHUB_URL%%" target="_blank" rel="noreferrer">
+              Continue on GitHub <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <p class="footer-name">%%PROFILE_NAME%%</p>
+          <p class="footer-note">Research · Education · Community</p>
+        </div>
+
+        <div class="footer-meta">
+          <p>%%PROFILE_LOCATION%%</p>
+          <p>© <span data-current-year>%%CURRENT_YEAR%%</span></p>
+        </div>
+
+        <a class="back-to-top" href="#top">
+          Back to top <span aria-hidden="true">↑</span>
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

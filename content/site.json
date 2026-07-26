@@ -1,0 +1,219 @@
+{
+  "meta": {
+    "title": "Yuelong (John) Guo — Research, Education & Community",
+    "description": "The personal portfolio of Yuelong (John) Guo, spanning biomedical research, course design and teaching, and volunteer community leadership.",
+    "url": "https://yuelongguo.github.io/",
+    "socialImage": "https://yuelongguo.github.io/public/og.png"
+  },
+  "profile": {
+    "name": "Yuelong (John) Guo",
+    "shortName": "Yuelong Guo",
+    "eyebrow": "Bioinformatics scientist · educator · community leader",
+    "headline": "Turning complex signals into shared progress.",
+    "introduction": "My work moves across biomedical research, technology education, and volunteer leadership—connecting evidence, learning, and community.",
+    "location": "North Carolina",
+    "github": "https://github.com/YuelongGuo"
+  },
+  "signalMap": [
+    {
+      "number": "01",
+      "label": "Imaging"
+    },
+    {
+      "number": "02",
+      "label": "Proteomics"
+    },
+    {
+      "number": "03",
+      "label": "Course design"
+    },
+    {
+      "number": "04",
+      "label": "Community"
+    }
+  ],
+  "stats": [
+    {
+      "value": "2",
+      "label": "research themes"
+    },
+    {
+      "value": "4",
+      "label": "course programs"
+    },
+    {
+      "value": "4",
+      "label": "leadership roles"
+    }
+  ],
+  "pillars": [
+    {
+      "number": "01",
+      "title": "Research & biomedical data",
+      "summary": "Earlier work in histology imaging and ongoing experience at the intersection of PD, proteomics, and biomarker research.",
+      "anchor": "#research"
+    },
+    {
+      "number": "02",
+      "title": "Teaching & curriculum",
+      "summary": "End-to-end course design paired with hands-on instruction across school, camp, and community learning programs.",
+      "anchor": "#teaching"
+    },
+    {
+      "number": "03",
+      "title": "Leadership & service",
+      "summary": "Volunteer leadership across scientific, technology, educational, and alumni communities in North Carolina.",
+      "anchor": "#leadership"
+    }
+  ],
+  "research": [
+    {
+      "slug": "histology-imaging",
+      "number": "01",
+      "kicker": "Earlier work",
+      "title": "Histology Imaging",
+      "summary": "Earlier work involving histology imaging, where biological context and quantitative analysis meet.",
+      "tags": [
+        "Biomedical imaging",
+        "Quantitative analysis"
+      ],
+      "details": {
+        "context": "",
+        "role": "",
+        "methods": [],
+        "outcomes": [],
+        "publications": [],
+        "media": []
+      }
+    },
+    {
+      "slug": "pd-proteomics",
+      "number": "02",
+      "kicker": "Biomarker research",
+      "title": "PD Proteomics & Biomarkers",
+      "summary": "Work at the intersection of PD, proteomics, and biomarker research.",
+      "tags": [
+        "Proteomics",
+        "Biomarkers",
+        "Translational research"
+      ],
+      "details": {
+        "context": "",
+        "role": "",
+        "methods": [],
+        "outcomes": [],
+        "publications": [],
+        "media": []
+      }
+    }
+  ],
+  "teaching": [
+    {
+      "period": "2023–2024",
+      "organization": "Cary Chinese School",
+      "program": "Course program",
+      "roles": [
+        "Curriculum Designer",
+        "Instructor"
+      ],
+      "summary": "Designed the complete course and served as an instructor.",
+      "audience": "",
+      "format": "",
+      "curriculum": [],
+      "artifacts": [],
+      "outcomes": []
+    },
+    {
+      "period": "2025",
+      "organization": "RTAI",
+      "program": "Summer Camp",
+      "roles": [
+        "Curriculum Designer",
+        "Instructor"
+      ],
+      "summary": "Designed the complete summer camp course and taught the program.",
+      "audience": "",
+      "format": "",
+      "curriculum": [],
+      "artifacts": [],
+      "outcomes": []
+    },
+    {
+      "period": "2026",
+      "organization": "CAST",
+      "program": "Summer Camp",
+      "roles": [
+        "Curriculum Designer",
+        "Instructor"
+      ],
+      "summary": "Designed the complete summer camp course and taught the program.",
+      "audience": "",
+      "format": "",
+      "curriculum": [],
+      "artifacts": [],
+      "outcomes": []
+    },
+    {
+      "period": "2026",
+      "organization": "RTAI",
+      "program": "AI Saturdays",
+      "roles": [
+        "Curriculum Designer",
+        "Instructor"
+      ],
+      "summary": "Designed the complete AI Saturdays course and served as an instructor.",
+      "audience": "",
+      "format": "",
+      "curriculum": [],
+      "artifacts": [],
+      "outcomes": []
+    }
+  ],
+  "leadership": [
+    {
+      "organization": "RTAI",
+      "role": "Vice President",
+      "category": "Technology & education",
+      "summary": "Volunteer leadership supporting a community centered on technology and learning.",
+      "term": "",
+      "contributions": [],
+      "outcomes": []
+    },
+    {
+      "organization": "SAPA",
+      "role": "IT Director",
+      "category": "Scientific community",
+      "summary": "Volunteer technology leadership in support of a professional scientific community.",
+      "term": "",
+      "contributions": [],
+      "outcomes": []
+    },
+    {
+      "organization": "CASTNC",
+      "role": "President",
+      "category": "Community leadership",
+      "summary": "Volunteer leadership serving a North Carolina science and technology community.",
+      "term": "",
+      "contributions": [],
+      "outcomes": []
+    },
+    {
+      "organization": "Zhejiang University Alumni Association",
+      "chapter": "North Carolina Chapter",
+      "role": "Vice President",
+      "category": "Alumni community",
+      "summary": "Volunteer leadership helping connect and serve the university’s alumni community in North Carolina.",
+      "term": "",
+      "contributions": [],
+      "outcomes": []
+    }
+  ],
+  "about": {
+    "eyebrow": "One practice, three settings",
+    "headline": "Researcher. Course builder. Community organizer.",
+    "paragraphs": [
+      "Across research, classrooms, and volunteer organizations, I’m drawn to the same challenge: bringing structure to complexity and helping people learn, build, and contribute.",
+      "This site is designed to grow with the work. Research case studies can expand with methods and publications; course stories can add curricula and learner outcomes; leadership roles can document initiatives and community impact."
+    ]
+  }
+}

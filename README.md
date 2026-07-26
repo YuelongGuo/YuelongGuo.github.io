@@ -1,37 +1,61 @@
-## Welcome to GitHub Pages
+# Yuelong (John) Guo — Personal Portfolio
 
-You can use the [editor on GitHub](https://github.com/YuelongGuo/YuelongGuo.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+A content-driven personal site organized around three connected areas:
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- biomedical research;
+- curriculum design and teaching;
+- volunteer leadership and community service.
 
-### Markdown
+The site is deliberately lightweight. It uses semantic HTML, modern CSS, and a small amount of JavaScript, with no external runtime dependencies. The generated `index.html` can be served directly by GitHub Pages.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Updating the content
 
-```markdown
-Syntax highlighted code block
+The source of truth is [`content/site.json`](content/site.json). Update that file when adding a research project, course, leadership role, or biographical detail.
 
-# Header 1
-## Header 2
-### Header 3
+Each experience has structured fields for future depth:
 
-- Bulleted
-- List
+- research: context, role, methods, outcomes, publications, and media;
+- teaching: program, organization, period, roles, description, curriculum, artifacts, and outcomes;
+- leadership: organization, title, term, contributions, and outcomes.
 
-1. Numbered
-2. List
+Only populated fields should be presented as facts. Keep a clear distinction between:
 
-**Bold** and _Italic_ and `Code` text
+1. **role** — a verified title;
+2. **contribution** — a specific action;
+3. **outcome** — an evidence-backed result.
 
-[Link](url) and ![Image](src)
+This makes it easy to expand the site without turning a title into an unsupported impact claim.
+
+## Building and previewing
+
+Node.js 22 or later is the only requirement.
+
+```powershell
+npm.cmd run build
+npm.cmd run dev
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+The development server prints the local preview address. The build command regenerates the root `index.html` and creates the deployment-ready `dist` folder.
 
-### Jekyll Themes
+Run the checks with:
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/YuelongGuo/YuelongGuo.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```powershell
+npm.cmd test
+```
 
-### Support or Contact
+## Editing the design
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- Page structure: [`src/index.template.html`](src/index.template.html)
+- Visual system and responsive layout: [`assets/css/main.css`](assets/css/main.css)
+- Navigation and restrained reveal behavior: [`assets/js/site.js`](assets/js/site.js)
+- Social preview card: [`public/og.png`](public/og.png)
+
+## Suggested next content
+
+The framework is ready for these additions when the details are available:
+
+- research questions, methods, publications, collaborators, and outcomes;
+- course audience, session plan, teaching artifacts, and learner feedback;
+- leadership terms, initiatives, community contributions, and outcomes;
+- a downloadable CV and a preferred contact method;
+- approved photos, event materials, talks, or project media.
