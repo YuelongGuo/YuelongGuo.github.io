@@ -2,6 +2,8 @@ import { access, cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { renderChart } from "./chart.mjs";
+
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const contentPath = join(projectRoot, "content", "site.json");
 const templatePath = join(projectRoot, "src", "index.template.html");
@@ -144,83 +146,6 @@ const renderMetrics = (items, recentLabel) =>
               </article>`
     )
     .join("");
-
-/**
- * Renders the citation distribution as inline SVG.
- *
- * The y-axis uses a square-root scale: a linear axis would flatten the long
- * tail against the baseline and hide the h-index crossing entirely, and a log
- * axis cannot represent the zero-citation works honestly. The shaded rectangle
- * is the literal h-square — h works, each with at least h citations.
- */
-const renderChart = (chart) => {
-  const shown = Math.min(Number(chart.shown) || chart.series.length, chart.series.length);
-  const series = chart.series.slice(0, shown);
-  const h = Number(chart.highlight);
-
-  const width = 660;
-  const height = 290;
-  const padLeft = 46;
-  const padRight = 14;
-  const padTop = 20;
-  const padBottom = 40;
-  const plotWidth = width - padLeft - padRight;
-  const plotHeight = height - padTop - padBottom;
-
-  const ceiling = 260;
-  const scale = (value) => Math.sqrt(Math.max(value, 0)) / Math.sqrt(ceiling);
-  const y = (value) => padTop + plotHeight - scale(value) * plotHeight;
-  const slot = plotWidth / shown;
-  const barWidth = Math.max(slot * 0.62, 2);
-  const xSlot = (index) => padLeft + index * slot;
-  const xBar = (index) => xSlot(index) + (slot - barWidth) / 2;
-
-  const yTicks = [250, 100, 50, 20, 0];
-  const xTicks = [1, 10, 20, 30].filter((rank) => rank <= shown);
-
-  const gridLines = yTicks
-    .map(
-      (tick) => `
-          <line class="chart-grid" x1="${padLeft}" x2="${width - padRight}" y1="${y(tick).toFixed(1)}" y2="${y(tick).toFixed(1)}" />
-          <text class="chart-axis-text" x="${padLeft - 10}" y="${(y(tick) + 3.5).toFixed(1)}" text-anchor="end">${tick}</text>`
-    )
-    .join("");
-
-  const bars = series
-    .map((value, index) => {
-      const barTop = y(value);
-      const isCore = index < h;
-      return `
-          <rect class="chart-bar${isCore ? " chart-bar-core" : ""}" x="${xBar(index).toFixed(1)}" y="${barTop.toFixed(1)}" width="${barWidth.toFixed(1)}" height="${(padTop + plotHeight - barTop).toFixed(1)}" rx="1">
-            <title>Rank ${index + 1}: ${value} citation${value === 1 ? "" : "s"}</title>
-          </rect>`;
-    })
-    .join("");
-
-  const rankLabels = xTicks
-    .map(
-      (rank) => `
-          <text class="chart-axis-text" x="${(xSlot(rank - 1) + slot / 2).toFixed(1)}" y="${height - padBottom + 20}" text-anchor="middle">${rank}</text>`
-    )
-    .join("");
-
-  const squareRight = xSlot(h);
-  const squareTop = y(h);
-
-  return `<svg class="chart" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="chart-title chart-caption" preserveAspectRatio="xMidYMid meet">
-          <g>${gridLines}
-          </g>
-          <rect class="chart-square" x="${padLeft}" y="${squareTop.toFixed(1)}" width="${(squareRight - padLeft).toFixed(1)}" height="${(padTop + plotHeight - squareTop).toFixed(1)}" />
-          <g>${bars}
-          </g>
-          <line class="chart-threshold" x1="${padLeft}" x2="${(squareRight + 42).toFixed(1)}" y1="${squareTop.toFixed(1)}" y2="${squareTop.toFixed(1)}" />
-          <line class="chart-threshold" x1="${squareRight.toFixed(1)}" x2="${squareRight.toFixed(1)}" y1="${squareTop.toFixed(1)}" y2="${padTop + plotHeight}" />
-          <circle class="chart-crossing" cx="${squareRight.toFixed(1)}" cy="${squareTop.toFixed(1)}" r="3.5" />
-          <text class="chart-callout" x="${(squareRight + 10).toFixed(1)}" y="${(squareTop - 10).toFixed(1)}">h = ${h}</text>
-          <text class="chart-axis-title" x="${padLeft}" y="${height - 6}">works ranked by citations →</text>
-          ${rankLabels}
-        </svg>`;
-};
 
 const renderTags = (tags = [], label = "Topics") =>
   tags.length === 0

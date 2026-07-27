@@ -143,6 +143,23 @@ test("navigation targets are unique and accessibility affordances exist", () => 
   assert.match(html, /aria-labelledby="chart-title chart-caption"/);
 });
 
+test("the social card is a correctly sized PNG that social platforms will accept", async () => {
+  const png = await readFile(join(projectRoot, "public", "og.png"));
+
+  const signature = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+  assert.ok(png.subarray(0, 8).equals(signature), "og.png must be a real PNG");
+
+  // IHDR is the first chunk; width and height are big-endian uint32 at 16 and 20.
+  assert.equal(png.toString("ascii", 12, 16), "IHDR");
+  assert.equal(png.readUInt32BE(16), 1200, "og.png should be 1200px wide");
+  assert.equal(png.readUInt32BE(20), 630, "og.png should be 630px tall");
+
+  assert.ok(
+    png.length < 1_000_000,
+    `og.png is ${(png.length / 1024).toFixed(0)} KB; keep social cards well under 1 MB`
+  );
+});
+
 test("deployment output contains the page, worker, and social image", async () => {
   await Promise.all([
     access(join(projectRoot, "dist", "client", "index.html")),

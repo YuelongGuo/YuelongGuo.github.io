@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Social card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+    <style>
+      /* Mirrors the site's tokens. Sizes are absolute because this renders to a
+         fixed 1200x630 bitmap, not to a reflowing page. */
+      :root {
+        --paper: #f6f4ef;
+        --paper-raised: #fdfcf9;
+        --band: #14181c;
+        --ink: #12161a;
+        --ink-2: #414a52;
+        --ink-3: #6d767e;
+        --rule: rgba(18, 22, 26, 0.14);
+        --rule-strong: rgba(18, 22, 26, 0.28);
+        --rule-band: rgba(242, 239, 233, 0.18);
+        --on-band: #f2efe9;
+        --on-band-3: rgba(242, 239, 233, 0.48);
+        --accent: #9e3b22;
+        --accent-on-band: #e08163;
+        --font-display: "Newsreader", Georgia, serif;
+        --font-sans: "Archivo", "Segoe UI", sans-serif;
+        --font-mono: "IBM Plex Mono", Consolas, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .rule-top {
+        height: 8px;
+        flex-shrink: 0;
+        background: var(--accent);
+      }
+
+      .card {
+        display: grid;
+        flex: 1;
+        grid-template-columns: 1fr 400px;
+        gap: 48px;
+        align-items: center;
+        padding: 52px 64px 0;
+      }
+
+      .eyebrow {
+        margin-bottom: 26px;
+        color: var(--accent);
+        font-family: var(--font-mono);
+        font-size: 17px;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .name {
+        font-family: var(--font-display);
+        font-size: 74px;
+        font-weight: 400;
+        letter-spacing: -0.025em;
+        line-height: 1.04;
+      }
+
+      .divider {
+        width: 108px;
+        height: 2px;
+        margin: 28px 0;
+        background: var(--ink);
+      }
+
+      .role {
+        max-width: 30ch;
+        color: var(--ink-2);
+        font-family: var(--font-display);
+        font-size: 27px;
+        font-style: italic;
+        line-height: 1.45;
+      }
+
+      /* Chart panel — the site's metrics band, reduced to its essentials. */
+      .panel {
+        padding: 30px 28px 26px;
+        border-radius: 4px;
+        background: var(--band);
+        color: var(--on-band);
+      }
+
+      .panel-key {
+        margin-bottom: 4px;
+        color: var(--accent-on-band);
+        font-family: var(--font-mono);
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .panel-value {
+        font-family: var(--font-display);
+        font-size: 62px;
+        font-weight: 400;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+
+      .panel-note {
+        margin-top: 6px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--rule-band);
+        color: var(--on-band-3);
+        font-size: 14px;
+      }
+
+      .chart {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-top: 16px;
+        overflow: visible;
+      }
+
+      /* On the dark panel the accent bars already carry the accent hue, so an
+         accent-tinted h-square disappears behind them. A pale block reads as a
+         grouping instead: these are the h works. */
+      .chart-square {
+        fill: var(--on-band);
+        opacity: 0.07;
+      }
+
+      .chart-bar {
+        fill: var(--on-band-3);
+      }
+
+      .chart-bar-core {
+        fill: var(--accent-on-band);
+      }
+
+      .chart-threshold {
+        stroke: var(--accent-on-band);
+        stroke-dasharray: 3 3;
+        stroke-width: 1;
+        opacity: 0.8;
+      }
+
+      .chart-crossing {
+        fill: var(--accent-on-band);
+      }
+
+      .chart-callout {
+        fill: var(--on-band);
+        font-family: var(--font-mono);
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .footer {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 40px;
+        margin: 0 64px;
+        padding: 22px 0 34px;
+        border-top: 1px solid var(--rule-strong);
+      }
+
+      .stats {
+        display: flex;
+        gap: 44px;
+      }
+
+      .stat-value {
+        color: var(--ink);
+        font-size: 30px;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+      }
+
+      .stat-label {
+        margin-top: 2px;
+        color: var(--ink-3);
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .domain {
+        color: var(--ink-2);
+        font-family: var(--font-mono);
+        font-size: 15px;
+        letter-spacing: 0.04em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rule-top"></div>
+
+    <div class="card">
+      <div class="copy">
+        <p class="eyebrow">%%PROFILE_EYEBROW%%</p>
+        <h1 class="name">%%PROFILE_NAME%%</h1>
+        <div class="divider"></div>
+        <p class="role">%%PROFILE_ROLE%%</p>
+      </div>
+
+      <div class="panel">
+        <p class="panel-key">h-index</p>
+        <p class="panel-value">%%H_INDEX%%</p>
+        <p class="panel-note">%%H_INDEX_NOTE%%</p>
+        %%CHART%%
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="stats">%%STATS%%</div>
+      <p class="domain">%%DOMAIN%%</p>
+    </div>
+  </body>
+</html>

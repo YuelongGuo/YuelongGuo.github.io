@@ -87,13 +87,31 @@ npm.cmd test
 The checks cover metadata, section structure, the h-index derivation, chart accessibility, unique
 IDs, and a **type-scale guard** that fails if any declared `font-size` exceeds 3.5rem (56px).
 
+## The social card
+
+[`public/og.png`](public/og.png) is the 1200×630 image that link previews show. It is generated,
+not hand-drawn:
+
+```bash
+npm.cmd run og
+```
+
+That reads the same `content/site.json`, renders [`src/og.template.html`](src/og.template.html)
+in headless Chrome or Edge, and writes the PNG. It reuses the site's own h-index chart via
+`renderChart()`, so the card cannot drift away from the page.
+
+It is **not** part of `npm run build`, because the build cannot assume a browser is installed.
+Regenerate it by hand whenever the name, role, or Scholar metrics change, and commit the result.
+Set `CHROME_PATH` if neither browser is in a standard location. A test checks the committed file
+is a real PNG at the right dimensions and under 1 MB.
+
 ## Editing the design
 
 - Page structure: [`src/index.template.html`](src/index.template.html)
 - Visual system and responsive layout: [`assets/css/main.css`](assets/css/main.css)
-- Chart generation: `renderChart()` in [`scripts/build.mjs`](scripts/build.mjs)
+- Citation chart, shared by page and card: [`scripts/chart.mjs`](scripts/chart.mjs)
 - Navigation and reveal behavior: [`assets/js/site.js`](assets/js/site.js)
-- Social preview card: [`public/og.png`](public/og.png)
+- Social card layout: [`src/og.template.html`](src/og.template.html)
 
 ### Type scale
 
@@ -107,5 +125,4 @@ else sits between 11px and 22px. The scale lives in the `--fs-*` custom properti
 - an approved description of the histology imaging work, which currently has no linked publication;
 - course audience, session plans, and teaching artifacts;
 - leadership terms and documented initiatives;
-- a downloadable CV and a preferred contact method;
-- a refreshed `public/og.png` matching the new design.
+- a downloadable CV and a preferred contact method.
