@@ -122,7 +122,7 @@ else sits between 11px and 22px. The scale lives in the `--fs-*` custom properti
 ## Suggested next content
 
 - methods, collaborators, and outcomes for each research thread;
-- an approved description of the histology imaging work, which currently has no linked publication;
+- a publication or dataset behind the histology imaging thread, which is described but unlinked;
 - course audience, session plans, and teaching artifacts;
 - leadership terms and documented initiatives;
 - a downloadable CV and a preferred contact method.

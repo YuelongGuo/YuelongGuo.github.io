@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Yuelong (John) Guo — Science, AI Education & Community",
-    "description": "Yuelong (John) Guo is a scientist working across biomarker discovery, quantitative imaging, and large-scale human genomics, and a volunteer AI educator and community leader in North Carolina.",
+    "description": "Yuelong (John) Guo is a scientist working across computational pathology, proteomic biomarker discovery, and large-scale human genomics, and a volunteer AI educator and community leader in North Carolina.",
     "url": "https://yuelongguo.github.io/",
     "socialImage": "https://yuelongguo.github.io/public/og.png"
   },
@@ -95,10 +95,15 @@
     {
       "slug": "imaging",
       "number": "01",
-      "kicker": "Quantitative imaging",
-      "title": "Histology imaging",
-      "summary": "Turning stained tissue sections into measurements: segmentation, morphometry, and reproducible quantification of structures that pathologists read qualitatively.",
-      "tags": ["Image analysis", "Tissue morphometry", "Reproducibility"],
+      "kicker": "Computational pathology",
+      "title": "Histology imaging & molecular subtyping",
+      "summary": "Joining histology imaging with molecular subtyping: using routine stained slides to assign cancer patients to subtypes ordinarily defined by expression profiling. The premise is that the transcriptional programs separating those subtypes leave signatures in tissue architecture and nuclear morphology, so a slide already cut for diagnosis can carry information otherwise bought with a separate molecular assay. The difficulty is generalization — a subtype label belongs to the patient while morphology varies from field to field across a whole slide, and stain and scanner variation between sites is easily mistaken for biological signal.",
+      "tags": [
+        "Computational pathology",
+        "Whole-slide imaging",
+        "Molecular subtyping",
+        "Cancer stratification"
+      ],
       "details": {
         "context": "",
         "role": "",
