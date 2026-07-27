@@ -22,8 +22,14 @@ const requiredStrings = [
   "profile.role",
   "profile.introduction",
   "profile.location",
-  "profile.github",
   "profile.scholar",
+  "profile.project.label",
+  "profile.project.url",
+  "profile.project.blurb",
+  "initiative.label",
+  "initiative.url",
+  "initiative.tagline",
+  "initiative.description",
   "scholar.source",
   "scholar.profileUrl",
   "scholar.retrieved",
@@ -265,6 +271,31 @@ const renderRoles = (roles = []) =>
                     ${roles.map((role) => `<li>${escapeHtml(role)}</li>`).join("")}
                   </ul>`;
 
+/** An organization name, linked out only when a URL is on file. */
+const renderOrgName = (name, url) =>
+  url
+    ? `<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${escapeHtml(name)} <span class="org-arrow" aria-hidden="true">↗</span></a>`
+    : escapeHtml(name);
+
+const renderCurriculum = (items = []) =>
+  items.length === 0
+    ? ""
+    : `<ul class="course-curriculum" aria-label="Course outline">
+                    ${items.map((entry) => `<li>${escapeHtml(entry)}</li>`).join("\n                    ")}
+                  </ul>`;
+
+const renderArtifacts = (items = []) =>
+  items.length === 0
+    ? ""
+    : `<p class="course-artifacts">
+                    ${items
+                      .map(
+                        (artifact) =>
+                          `<a class="course-artifact" href="${escapeHtml(artifact.url)}" target="_blank" rel="noreferrer">${escapeHtml(artifact.label)} <span aria-hidden="true">↗</span></a>`
+                      )
+                      .join("\n                    ")}
+                  </p>`;
+
 const renderTeaching = (items) =>
   items
     .map(
@@ -273,8 +304,10 @@ const renderTeaching = (items) =>
                 <p class="course-period">${escapeHtml(item.period)}</p>
                 <div class="course-body">
                   <p class="course-program">${escapeHtml(item.program)}</p>
-                  <h3 class="course-org">${escapeHtml(item.organization)}</h3>
+                  <h3 class="course-org">${renderOrgName(item.organization, item.url)}</h3>
                   <p class="course-summary">${escapeHtml(item.summary)}</p>
+                  ${renderCurriculum(item.curriculum)}
+                  ${renderArtifacts(item.artifacts)}
                   ${renderRoles(item.roles)}
                 </div>
               </li>`
@@ -287,7 +320,7 @@ const renderLeadership = (items) =>
       (item) => `
               <article class="service reveal">
                 <p class="service-category">${escapeHtml(item.category)}</p>
-                <h3 class="service-org">${escapeHtml(item.organization)}</h3>
+                <h3 class="service-org">${renderOrgName(item.organization, item.url)}</h3>
                 ${item.chapter ? `<p class="service-chapter">${escapeHtml(item.chapter)}</p>` : ""}
                 <p class="service-role">${escapeHtml(item.role)}</p>
                 <p class="service-summary">${escapeHtml(item.summary)}</p>
@@ -326,7 +359,13 @@ const replaceTokens = (template, content) => {
     "%%PROFILE_LOCATION%%": escapeHtml(content.profile.location),
     "%%AFFILIATION_BLOCK%%": renderAffiliation(content.profile.affiliation),
     "%%EMAIL_ROW%%": renderEmail(content.profile.email),
-    "%%GITHUB_URL%%": escapeHtml(content.profile.github),
+    "%%PROJECT_URL%%": escapeHtml(content.profile.project.url),
+    "%%PROJECT_LABEL%%": escapeHtml(content.profile.project.label),
+    "%%PROJECT_BLURB%%": escapeHtml(content.profile.project.blurb),
+    "%%INITIATIVE_URL%%": escapeHtml(content.initiative.url),
+    "%%INITIATIVE_LABEL%%": escapeHtml(content.initiative.label),
+    "%%INITIATIVE_TAGLINE%%": escapeHtml(content.initiative.tagline),
+    "%%INITIATIVE_DESCRIPTION%%": escapeHtml(content.initiative.description),
     "%%SCHOLAR_URL%%": escapeHtml(content.scholar.profileUrl),
     "%%SCHOLAR_SOURCE%%": escapeHtml(content.scholar.source),
     "%%SCHOLAR_RETRIEVED%%": escapeHtml(content.scholar.retrieved),

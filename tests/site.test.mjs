@@ -84,6 +84,44 @@ test("every research theme and selected publication is rendered", () => {
   }
 });
 
+test("every organization and artifact URL on file is linked from the page", () => {
+  const urls = [
+    content.profile.project.url,
+    content.initiative.url,
+    ...content.teaching.map((item) => item.url),
+    ...content.teaching.flatMap((item) => (item.artifacts ?? []).map((a) => a.url)),
+    ...content.leadership.map((item) => item.url)
+  ].filter(Boolean);
+
+  for (const url of new Set(urls)) {
+    assert.ok(html.includes(`href="${url}"`), `expected a link to ${url}`);
+  }
+});
+
+test("external links are safe and the retired GitHub link is gone", () => {
+  const externals = [...html.matchAll(/<a[^>]*target="_blank"[^>]*>/g)].map((m) => m[0]);
+  assert.ok(externals.length > 0);
+
+  for (const anchor of externals) {
+    assert.match(anchor, /rel="noreferrer"/, `missing rel=noreferrer: ${anchor}`);
+  }
+
+  assert.doesNotMatch(html, /github\.com/i, "the GitHub link was replaced and should not linger");
+  assert.equal(content.profile.github, undefined, "profile.github should be removed from content");
+});
+
+test("course detail survives the render", () => {
+  const withCurriculum = content.teaching.filter((item) => item.curriculum.length > 0);
+  assert.ok(withCurriculum.length > 0, "at least one course should list a curriculum");
+
+  for (const course of withCurriculum) {
+    for (const entry of course.curriculum) {
+      const escaped = entry.replaceAll("&", "&amp;").replaceAll("'", "&#039;");
+      assert.ok(html.includes(escaped), `missing curriculum line: ${entry}`);
+    }
+  }
+});
+
 test("headline type stays within a professional scale", () => {
   const remValues = [...css.matchAll(/font-size:[^;]*?(\d+(?:\.\d+)?)rem\s*\)?\s*;/g)].map((match) =>
     Number(match[1])

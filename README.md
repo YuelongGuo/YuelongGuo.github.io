@@ -34,6 +34,18 @@ should assume:
 - `profile.email` — set it and a contact row appears in the hero record card. Left blank, no
   email is published anywhere on the page.
 
+## Outbound links
+
+Organization URLs live alongside each entry: `teaching[].url`, `leadership[].url`, and
+`teaching[].artifacts[]` for student work. An organization name renders as plain text when its
+`url` is empty and as an external link when it is set, so partial information degrades cleanly.
+
+`profile.project` is the single featured link in the hero record card and the About section.
+`initiative` drives the highlighted program card at the top of the Education section.
+
+A test asserts that every URL in `content/site.json` actually appears in the built page and that
+every `target="_blank"` link carries `rel="noreferrer"`.
+
 ## Keeping the Scholar metrics honest
 
 The `scholar` block holds the citation record. It is deliberately *not* fetched at runtime — the

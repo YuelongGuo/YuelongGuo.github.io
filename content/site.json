@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Yuelong (John) Guo — Computational Biology, Education & Community",
-    "description": "Yuelong (John) Guo is a bioinformatics scientist working across biomarker discovery, quantitative imaging, and large-scale human genomics, and a volunteer curriculum designer and community leader in North Carolina.",
+    "title": "Yuelong (John) Guo — Science, AI Education & Community",
+    "description": "Yuelong (John) Guo is a scientist working across biomarker discovery, quantitative imaging, and large-scale human genomics, and a volunteer AI educator and community leader in North Carolina.",
     "url": "https://yuelongguo.github.io/",
     "socialImage": "https://yuelongguo.github.io/public/og.png"
   },
@@ -9,14 +9,24 @@
     "name": "Yuelong (John) Guo",
     "shortName": "Yuelong Guo",
     "initials": "YG",
-    "eyebrow": "Bioinformatics scientist · educator · community leader",
-    "role": "I work at the point where biological measurement becomes evidence — quantitative imaging, proteomic biomarkers, and human genetics at population scale.",
+    "eyebrow": "Scientist · educator · community leader",
+    "role": "Two questions drive everything I do: what is the mechanism underneath, and how do I put that understanding into someone else's hands?",
     "affiliation": "",
-    "introduction": "A publication record spanning genetics, transfusion medicine, oncology, and neurodegeneration — alongside volunteer curriculum design and leadership across North Carolina's science, technology, and education communities.",
+    "introduction": "I use computation and AI to find the mechanism behind a biomarker, an image, or a genome — and I teach the same tools to students, so they can open the black box instead of admiring it.",
     "location": "North Carolina, USA",
-    "github": "https://github.com/YuelongGuo",
     "scholar": "https://scholar.google.com/citations?user=TM8sOzYAAAAJ&hl=en",
+    "project": {
+      "label": "AI for Youth Academy",
+      "url": "https://ai.foryouth.net",
+      "blurb": "AI education for young builders"
+    },
     "email": ""
+  },
+  "initiative": {
+    "label": "AI for Youth Academy",
+    "url": "https://ai.foryouth.net",
+    "tagline": "Build world-changing ideas with AI, one year at a time.",
+    "description": "A five-year, project-based pathway through AI, mathematics, programming, and machine learning for middle and high school students — summer camps, weekend studios, and after-school labs."
   },
   "stats": [
     {
@@ -282,33 +292,46 @@
     {
       "period": "2023–2024",
       "organization": "Cary Chinese School",
-      "program": "Academic year course",
+      "url": "",
+      "program": "Introduction to AI",
       "roles": ["Curriculum Designer", "Instructor"],
-      "summary": "Designed the full course and taught it across the academic year.",
+      "summary": "A first course in AI built for intuition rather than recipes — what each algorithm is actually doing under the hood, and why it works.",
       "audience": "",
       "format": "",
-      "curriculum": [],
+      "curriculum": [
+        "Open at linear regression: loss, fitting, and gradient descent worked through by hand",
+        "Build up to neural networks one component at a time, so nothing arrives as magic",
+        "Explore the range of deep learning architectures and what each one is shaped for",
+        "Keep the emphasis on mechanism throughout — students should be able to explain the model, not just run it"
+      ],
       "artifacts": [],
       "outcomes": []
     },
     {
       "period": "2025",
-      "organization": "RTAI",
-      "program": "Summer Camp",
+      "organization": "Research Triangle AI Society",
+      "url": "https://research-triangle.ai",
+      "program": "Summer Camp — building websites with GenAI",
       "roles": ["Curriculum Designer", "Instructor"],
-      "summary": "Built the summer camp curriculum from scratch and taught the full program.",
+      "summary": "A camp that takes students from an idea to a deployed, working website using generative AI tools — prompting, iterating, and shipping something real by the end.",
       "audience": "",
       "format": "",
       "curriculum": [],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "label": "Example student website",
+          "url": "https://crochet-website-830598210019.us-central1.run.app/"
+        }
+      ],
       "outcomes": []
     },
     {
       "period": "2026",
       "organization": "CAST",
-      "program": "Summer Camp",
+      "url": "https://castnc.org",
+      "program": "Summer Camp — learning anything with AI",
       "roles": ["Curriculum Designer", "Instructor"],
-      "summary": "Designed and delivered the summer camp program end to end.",
+      "summary": "AI as a learning instrument rather than an answer machine: how to interrogate an unfamiliar subject, check what the model tells you, and build a study path you can actually follow.",
       "audience": "",
       "format": "",
       "curriculum": [],
@@ -317,10 +340,11 @@
     },
     {
       "period": "2026",
-      "organization": "RTAI",
+      "organization": "Research Triangle AI Society",
+      "url": "https://research-triangle.ai",
       "program": "AI Saturdays",
       "roles": ["Curriculum Designer", "Instructor"],
-      "summary": "Designed the AI Saturdays course and taught the sessions.",
+      "summary": "A rotating survey of what AI tools can genuinely produce — websites, apps, video, and more — with participants building and shipping something in each session.",
       "audience": "",
       "format": "",
       "curriculum": [],
@@ -330,11 +354,12 @@
   ],
   "leadership": [
     {
-      "organization": "RTAI",
-      "chapter": "",
+      "organization": "Research Triangle AI Society",
+      "chapter": "RTAI",
+      "url": "https://research-triangle.ai",
       "role": "Vice President",
       "category": "Technology & education",
-      "summary": "Volunteer leadership for a community built around technology education and hands-on learning.",
+      "summary": "Volunteer leadership of a society advancing the understanding and application of AI across the Research Triangle — talks, workshops, youth programs, and an annual conference.",
       "term": "",
       "contributions": [],
       "outcomes": []
@@ -342,6 +367,7 @@
     {
       "organization": "SAPA",
       "chapter": "",
+      "url": "https://sapa-na.org",
       "role": "IT Director",
       "category": "Scientific community",
       "summary": "Volunteer technology leadership for a professional association of scientists and pharmaceutical professionals.",
@@ -352,6 +378,7 @@
     {
       "organization": "CASTNC",
       "chapter": "",
+      "url": "https://castnc.org",
       "role": "President",
       "category": "Community leadership",
       "summary": "Volunteer leadership of a North Carolina association for science and technology professionals.",
@@ -362,6 +389,7 @@
     {
       "organization": "Zhejiang University Alumni Association",
       "chapter": "North Carolina Chapter",
+      "url": "https://zjuaanc.org",
       "role": "Vice President",
       "category": "Alumni community",
       "summary": "Volunteer leadership connecting and serving the university's alumni community across North Carolina.",
@@ -371,12 +399,13 @@
     }
   ],
   "about": {
-    "eyebrow": "One method, three settings",
-    "headline": "Researcher. Course builder. Community organizer.",
+    "eyebrow": "One question, three settings",
+    "headline": "Find the mechanism. Hand it to someone else.",
     "paragraphs": [
-      "My research career has moved from plant and nematode genomes to human population genetics, from transfusion medicine to neurodegeneration. The through-line is method rather than organism: define the measurement carefully, respect what the data can and cannot support, and make the analysis reproducible by someone else.",
-      "The same instinct shows up outside the lab. Designing a course means deciding what a learner should be able to do at the end and building the shortest honest path there. Running a volunteer organization means the same work applied to people and process instead of data.",
-      "This site is built to grow with the work: research themes can expand into methods and outcomes, courses into curricula and learner results, and service roles into documented initiatives."
+      "I have spent my career asking the same question of very different systems: what is the mechanism underneath? Plant and nematode genomes gave way to human population genetics, transfusion medicine to neurodegeneration — but the method never changed. Define the measurement carefully, respect what the data can and cannot support, and leave behind an analysis someone else can reproduce.",
+      "AI changed the pace of that work rather than its nature. It lets me search a proteome or a stack of images for structure I would never have found by hand, and it collapses the distance between having an idea and testing it. What it does not do is explain itself — which is exactly why I teach it the way I do.",
+      "In the classroom I would rather a student understand one algorithm from the inside than run ten of them as black boxes. My courses open at linear regression and build upward, because the intuition transfers even as the tools keep changing. The aim is always the same: give someone enough understanding to go and build the thing they were already imagining.",
+      "The volunteer work comes from the same place. A community, like a model, only works when enough people are willing to look under the hood and explain what they find."
     ]
   }
 }
