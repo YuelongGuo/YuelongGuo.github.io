@@ -87,6 +87,24 @@ npm.cmd test
 The checks cover metadata, section structure, the h-index derivation, chart accessibility, unique
 IDs, and a **type-scale guard** that fails if any declared `font-size` exceeds 3.5rem (56px).
 
+### Layout check
+
+With the dev server running, and after any change to layout CSS:
+
+```bash
+npm.cmd run check
+```
+
+This loads the built page in headless Chrome at five widths and fails if the document scrolls
+horizontally. That failure is invisible in the markup, survives every unit test, and is the first
+thing a phone visitor notices. It is caused by grid and flex items, whose automatic minimum size
+is their min-content width rather than zero — the fix is usually `min-width: 0` on the item plus
+an `overflow-x: auto` wrapper if the content really needs the room. Mark a deliberate scroll
+container with `data-allow-overflow` so the check ignores what is inside it.
+
+Headless Chrome clamps its window to 500px minimum on Windows, so 500 is the narrowest width
+measurable here; it is below every breakpoint that matters.
+
 ## The social card
 
 [`public/og.png`](public/og.png) is the 1200×630 image that link previews show. It is generated,

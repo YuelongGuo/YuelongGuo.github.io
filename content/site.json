@@ -55,6 +55,7 @@
     "profileUrl": "https://scholar.google.com/citations?user=TM8sOzYAAAAJ&hl=en",
     "retrieved": "July 2026",
     "recentLabel": "since 2021",
+    "explainer": "For anyone outside academia: a citation is one paper referring to another, so citation counts are a rough measure of whether work gets used. The h-index balances quantity against reach — an h-index of 20 means twenty papers have each been cited at least twenty times. It is a blunt instrument. It says nothing about teaching, mentoring, or service, it favours older work, and it varies enormously between fields. But it is the standard shorthand in science, so it is a reasonable place to start.",
     "indexedWorks": "57",
     "yearSpan": "2010–2025",
     "metrics": [
@@ -79,7 +80,7 @@
     ],
     "chart": {
       "title": "Citation distribution and the h-index",
-      "caption": "Each bar is one of the 32 most-cited works, ranked by citation count. The shaded rectangle is the h-index: the largest number h such that h works have at least h citations each. Twenty bars clear the twenty-citation line; the twenty-first does not.",
+      "caption": "Each bar is one of the 32 most-cited works, ranked by citation count. The dashed lines mark the h-index — the largest number h for which h works have at least h citations each. The twenty highlighted bars all reach the twenty-citation line; the twenty-first does not, which is what fixes h at 20.",
       "highlight": 20,
       "shown": 32,
       "series": [
@@ -364,7 +365,7 @@
       "url": "https://research-triangle.ai",
       "role": "Vice President",
       "category": "Technology & education",
-      "summary": "Volunteer leadership of a society advancing the understanding and application of AI across the Research Triangle — talks, workshops, youth programs, and an annual conference.",
+      "summary": "A society advancing the understanding and application of AI across the Research Triangle, through talks, workshops, youth programs, and an annual conference.",
       "term": "",
       "contributions": [],
       "outcomes": []
@@ -375,7 +376,7 @@
       "url": "https://sapa-nc.org",
       "role": "IT Director",
       "category": "Scientific community",
-      "summary": "Volunteer technology leadership for the North Carolina chapter, serving pharmaceutical and life sciences professionals across the Research Triangle.",
+      "summary": "The North Carolina chapter serves pharmaceutical and life sciences professionals across the Research Triangle. I look after its technology.",
       "term": "",
       "contributions": [],
       "outcomes": []
@@ -385,8 +386,8 @@
       "chapter": "",
       "url": "https://castnc.org",
       "role": "President",
-      "category": "Community leadership",
-      "summary": "Volunteer leadership of a North Carolina association for science and technology professionals.",
+      "category": "Science & technology",
+      "summary": "A North Carolina association for professionals working in science and technology.",
       "term": "",
       "contributions": [],
       "outcomes": []
@@ -397,7 +398,7 @@
       "url": "https://zjuaanc.org",
       "role": "Vice President",
       "category": "Alumni community",
-      "summary": "Volunteer leadership connecting and serving the university's alumni community across North Carolina.",
+      "summary": "Connecting and serving the university's alumni community across North Carolina.",
       "term": "",
       "contributions": [],
       "outcomes": []

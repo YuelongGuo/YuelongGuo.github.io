@@ -650,12 +650,33 @@ cite {
   text-decoration: underline;
 }
 
+/* Plain-language framing of the metrics, for readers outside academia. */
+.metrics-explainer {
+  max-width: 78ch;
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent-on-band);
+  color: var(--on-band-2);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
 .metrics-layout {
   display: grid;
   grid-template-columns: minmax(13rem, 1fr) minmax(0, 1.9fr);
   gap: clamp(2rem, 4vw, 3.5rem);
   align-items: start;
   padding-top: 1.75rem;
+}
+
+/* A grid item's automatic minimum size is its min-content width, not zero. Both
+   children here are wider than a phone at their min-content: .metrics-grid goes
+   three columns below 62rem, and .chart declares min-width: 34rem to keep its
+   axis labels legible. Either one inflates the track and pushes the whole page
+   into horizontal scroll. min-width: 0 lets the track shrink; the chart's own
+   .chart-scroll then absorbs its overflow. Verified by `npm run check`. */
+.metrics-layout > * {
+  min-width: 0;
 }
 
 .metrics-grid {
@@ -765,9 +786,13 @@ cite {
   text-transform: uppercase;
 }
 
+/* The h-square is mostly covered by the bars standing inside it, so only the
+   gaps between them carry the fill. It reads as a tint behind the group rather
+   than a solid block; the dashed threshold lines do the real work of marking
+   the boundary, and the caption points at those. */
 .chart-square {
-  fill: var(--accent-on-band);
-  opacity: 0.11;
+  fill: var(--on-band);
+  opacity: 0.1;
 }
 
 .chart-bar {
