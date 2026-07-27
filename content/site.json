@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Yuelong (John) Guo — Science, AI Education & Community",
-    "description": "Yuelong (John) Guo is a scientist working across computational pathology, proteomic biomarker discovery, and large-scale human genomics, and a volunteer AI educator and community leader in North Carolina.",
+    "description": "Yuelong (John) Guo is a scientist working across computational pathology, proteomic biomarker discovery, and large-scale human genomics, and a volunteer AI educator in North Carolina.",
     "url": "https://yuelongguo.github.io/",
     "socialImage": "https://yuelongguo.github.io/public/og.png"
   },
@@ -9,7 +9,7 @@
     "name": "Yuelong (John) Guo",
     "shortName": "Yuelong Guo",
     "initials": "YG",
-    "eyebrow": "Scientist · educator · community leader",
+    "eyebrow": "Scientist · educator · volunteer",
     "role": "Two questions drive everything I do: what is the mechanism underneath, and how do I put that understanding into someone else's hands?",
     "affiliation": "",
     "introduction": "I use computation and AI to find the mechanism behind a biomarker, an image, or a genome — and I teach the same tools to students, so they can open the black box instead of admiring it.",
