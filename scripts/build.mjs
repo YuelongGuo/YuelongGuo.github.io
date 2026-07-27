@@ -17,10 +17,21 @@ const requiredStrings = [
   "meta.socialImage",
   "profile.name",
   "profile.shortName",
+  "profile.initials",
   "profile.eyebrow",
+  "profile.role",
   "profile.introduction",
   "profile.location",
   "profile.github",
+  "profile.scholar",
+  "scholar.source",
+  "scholar.profileUrl",
+  "scholar.retrieved",
+  "scholar.recentLabel",
+  "scholar.indexedWorks",
+  "scholar.yearSpan",
+  "scholar.chart.title",
+  "scholar.chart.caption",
   "about.eyebrow",
   "about.headline"
 ];
@@ -46,9 +57,47 @@ const assertContent = (content) => {
     throw new Error(`Missing required content fields: ${missing.join(", ")}`);
   }
 
-  for (const key of ["signalMap", "stats", "pillars", "research", "teaching", "leadership"]) {
+  for (const key of ["stats", "research", "publications", "teaching", "leadership"]) {
     if (!Array.isArray(content[key]) || content[key].length === 0) {
       throw new Error(`Content field "${key}" must be a non-empty array.`);
+    }
+  }
+
+  if (!Array.isArray(content.scholar.metrics) || content.scholar.metrics.length === 0) {
+    throw new Error('Content field "scholar.metrics" must be a non-empty array.');
+  }
+
+  const series = content.scholar.chart.series;
+  if (!Array.isArray(series) || series.some((value) => !Number.isFinite(value))) {
+    throw new Error('"scholar.chart.series" must be an array of numbers.');
+  }
+
+  const sorted = [...series].sort((a, b) => b - a);
+  if (series.some((value, index) => value !== sorted[index])) {
+    throw new Error('"scholar.chart.series" must be sorted from most to least cited.');
+  }
+
+  // The h-index is derivable from the series, so the published figure must agree
+  // with the data behind the chart rather than being asserted independently.
+  const derivedHIndex = sorted.filter((value, index) => value >= index + 1).length;
+  const claimedHIndex = content.scholar.metrics.find((metric) => metric.key === "h-index")?.all;
+  if (claimedHIndex !== undefined && Number(claimedHIndex) !== derivedHIndex) {
+    throw new Error(
+      `Stated h-index (${claimedHIndex}) does not match the citation series, which gives ${derivedHIndex}.`
+    );
+  }
+  if (Number(content.scholar.chart.highlight) !== derivedHIndex) {
+    throw new Error(
+      `chart.highlight (${content.scholar.chart.highlight}) must equal the derived h-index (${derivedHIndex}).`
+    );
+  }
+
+  const publicationIds = new Set(content.publications.map((item) => item.id));
+  for (const theme of content.research) {
+    for (const reference of theme.details?.publications ?? []) {
+      if (!publicationIds.has(reference)) {
+        throw new Error(`Research theme "${theme.slug}" references unknown publication "${reference}".`);
+      }
     }
   }
 
@@ -60,63 +109,152 @@ const assertContent = (content) => {
   }
 };
 
-const renderSignalMap = (items) =>
-  items
-    .map(
-      (item) => `
-            <li>
-              <span class="signal-number">${escapeHtml(item.number)}</span>
-              <span class="signal-name">${escapeHtml(item.label)}</span>
-            </li>`
-    )
-    .join("");
-
 const renderStats = (items) =>
   items
     .map(
       (item) => `
-          <div>
-            <dt>${escapeHtml(item.label)}</dt>
-            <dd>${escapeHtml(item.value)}</dd>
-          </div>`
+            <div class="stat">
+              <dt>
+                <span class="stat-label">${escapeHtml(item.label)}</span>
+                ${item.note ? `<span class="stat-note">${escapeHtml(item.note)}</span>` : ""}
+              </dt>
+              <dd>${escapeHtml(item.value)}</dd>
+            </div>`
     )
     .join("");
 
-const renderPillars = (items) =>
+const renderMetrics = (items, recentLabel) =>
   items
     .map(
       (item) => `
-            <a class="pillar-card reveal" href="${escapeHtml(item.anchor)}">
-              <span class="pillar-number">${escapeHtml(item.number)}</span>
-              <h3>${escapeHtml(item.title)}</h3>
-              <p>${escapeHtml(item.summary)}</p>
-              <span class="pillar-link">
-                Explore <span aria-hidden="true">↘</span>
-              </span>
-            </a>`
+              <article class="metric">
+                <p class="metric-key">${escapeHtml(item.key)}</p>
+                <p class="metric-value">${escapeHtml(item.all)}</p>
+                <p class="metric-recent">
+                  <span class="metric-recent-value">${escapeHtml(item.recent)}</span>
+                  <span class="metric-recent-label">${escapeHtml(recentLabel)}</span>
+                </p>
+                ${item.note ? `<p class="metric-note">${escapeHtml(item.note)}</p>` : ""}
+              </article>`
     )
     .join("");
 
-const renderTags = (tags = []) =>
+/**
+ * Renders the citation distribution as inline SVG.
+ *
+ * The y-axis uses a square-root scale: a linear axis would flatten the long
+ * tail against the baseline and hide the h-index crossing entirely, and a log
+ * axis cannot represent the zero-citation works honestly. The shaded rectangle
+ * is the literal h-square — h works, each with at least h citations.
+ */
+const renderChart = (chart) => {
+  const shown = Math.min(Number(chart.shown) || chart.series.length, chart.series.length);
+  const series = chart.series.slice(0, shown);
+  const h = Number(chart.highlight);
+
+  const width = 660;
+  const height = 290;
+  const padLeft = 46;
+  const padRight = 14;
+  const padTop = 20;
+  const padBottom = 40;
+  const plotWidth = width - padLeft - padRight;
+  const plotHeight = height - padTop - padBottom;
+
+  const ceiling = 260;
+  const scale = (value) => Math.sqrt(Math.max(value, 0)) / Math.sqrt(ceiling);
+  const y = (value) => padTop + plotHeight - scale(value) * plotHeight;
+  const slot = plotWidth / shown;
+  const barWidth = Math.max(slot * 0.62, 2);
+  const xSlot = (index) => padLeft + index * slot;
+  const xBar = (index) => xSlot(index) + (slot - barWidth) / 2;
+
+  const yTicks = [250, 100, 50, 20, 0];
+  const xTicks = [1, 10, 20, 30].filter((rank) => rank <= shown);
+
+  const gridLines = yTicks
+    .map(
+      (tick) => `
+          <line class="chart-grid" x1="${padLeft}" x2="${width - padRight}" y1="${y(tick).toFixed(1)}" y2="${y(tick).toFixed(1)}" />
+          <text class="chart-axis-text" x="${padLeft - 10}" y="${(y(tick) + 3.5).toFixed(1)}" text-anchor="end">${tick}</text>`
+    )
+    .join("");
+
+  const bars = series
+    .map((value, index) => {
+      const barTop = y(value);
+      const isCore = index < h;
+      return `
+          <rect class="chart-bar${isCore ? " chart-bar-core" : ""}" x="${xBar(index).toFixed(1)}" y="${barTop.toFixed(1)}" width="${barWidth.toFixed(1)}" height="${(padTop + plotHeight - barTop).toFixed(1)}" rx="1">
+            <title>Rank ${index + 1}: ${value} citation${value === 1 ? "" : "s"}</title>
+          </rect>`;
+    })
+    .join("");
+
+  const rankLabels = xTicks
+    .map(
+      (rank) => `
+          <text class="chart-axis-text" x="${(xSlot(rank - 1) + slot / 2).toFixed(1)}" y="${height - padBottom + 20}" text-anchor="middle">${rank}</text>`
+    )
+    .join("");
+
+  const squareRight = xSlot(h);
+  const squareTop = y(h);
+
+  return `<svg class="chart" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="chart-title chart-caption" preserveAspectRatio="xMidYMid meet">
+          <g>${gridLines}
+          </g>
+          <rect class="chart-square" x="${padLeft}" y="${squareTop.toFixed(1)}" width="${(squareRight - padLeft).toFixed(1)}" height="${(padTop + plotHeight - squareTop).toFixed(1)}" />
+          <g>${bars}
+          </g>
+          <line class="chart-threshold" x1="${padLeft}" x2="${(squareRight + 42).toFixed(1)}" y1="${squareTop.toFixed(1)}" y2="${squareTop.toFixed(1)}" />
+          <line class="chart-threshold" x1="${squareRight.toFixed(1)}" x2="${squareRight.toFixed(1)}" y1="${squareTop.toFixed(1)}" y2="${padTop + plotHeight}" />
+          <circle class="chart-crossing" cx="${squareRight.toFixed(1)}" cy="${squareTop.toFixed(1)}" r="3.5" />
+          <text class="chart-callout" x="${(squareRight + 10).toFixed(1)}" y="${(squareTop - 10).toFixed(1)}">h = ${h}</text>
+          <text class="chart-axis-title" x="${padLeft}" y="${height - 6}">works ranked by citations →</text>
+          ${rankLabels}
+        </svg>`;
+};
+
+const renderTags = (tags = [], label = "Topics") =>
   tags.length === 0
     ? ""
-    : `<ul class="tag-list" aria-label="Topics">
-                ${tags.map((tag) => `<li>${escapeHtml(tag)}</li>`).join("")}
-              </ul>`;
+    : `<ul class="tag-list" aria-label="${escapeHtml(label)}">
+                  ${tags.map((tag) => `<li>${escapeHtml(tag)}</li>`).join("")}
+                </ul>`;
 
 const renderResearch = (items) =>
   items
     .map(
       (item) => `
-            <article id="${escapeHtml(item.slug)}" class="research-card reveal">
-              <div class="research-topline">
-                <p class="research-kicker">${escapeHtml(item.kicker)}</p>
-                <span class="research-number" aria-hidden="true">${escapeHtml(item.number)}</span>
+            <article id="theme-${escapeHtml(item.slug)}" class="theme reveal">
+              <div class="theme-index" aria-hidden="true">${escapeHtml(item.number)}</div>
+              <div class="theme-body">
+                <p class="theme-kicker">${escapeHtml(item.kicker)}</p>
+                <h3 class="theme-title">${escapeHtml(item.title)}</h3>
+                <p class="theme-summary">${escapeHtml(item.summary)}</p>
+                ${renderTags(item.tags)}
               </div>
-              <h3>${escapeHtml(item.title)}</h3>
-              <p class="research-summary">${escapeHtml(item.summary)}</p>
-              ${renderTags(item.tags)}
             </article>`
+    )
+    .join("");
+
+const renderPublications = (items) =>
+  items
+    .map(
+      (item) => `
+              <li class="publication reveal">
+                <p class="publication-meta">
+                  <span class="publication-authors">${escapeHtml(item.authors)}</span>
+                  <span class="publication-year">${escapeHtml(item.year)}</span>
+                  ${item.firstAuthor ? '<span class="publication-flag">First author</span>' : ""}
+                </p>
+                <p class="publication-title">${escapeHtml(item.title)}</p>
+                <p class="publication-venue">
+                  <cite>${escapeHtml(item.venue)}</cite>
+                  <span class="publication-citations"><span class="publication-count">${escapeHtml(item.citations)}</span> citations</span>
+                </p>
+              </li>`
     )
     .join("");
 
@@ -131,14 +269,14 @@ const renderTeaching = (items) =>
   items
     .map(
       (item) => `
-              <li class="teaching-item reveal">
-                <span class="teaching-period">${escapeHtml(item.period)}</span>
-                <article class="teaching-card">
-                  <p class="teaching-program">${escapeHtml(item.program)}</p>
-                  <h3>${escapeHtml(item.organization)}</h3>
+              <li class="course reveal">
+                <p class="course-period">${escapeHtml(item.period)}</p>
+                <div class="course-body">
+                  <p class="course-program">${escapeHtml(item.program)}</p>
+                  <h3 class="course-org">${escapeHtml(item.organization)}</h3>
+                  <p class="course-summary">${escapeHtml(item.summary)}</p>
                   ${renderRoles(item.roles)}
-                  <p class="teaching-summary">${escapeHtml(item.summary)}</p>
-                </article>
+                </div>
               </li>`
     )
     .join("");
@@ -147,18 +285,31 @@ const renderLeadership = (items) =>
   items
     .map(
       (item) => `
-            <article class="leadership-card reveal">
-              <p class="leadership-category">${escapeHtml(item.category)}</p>
-              <h3>${escapeHtml(item.organization)}</h3>
-              ${item.chapter ? `<p class="leadership-chapter">${escapeHtml(item.chapter)}</p>` : ""}
-              <p class="leadership-role">${escapeHtml(item.role)}</p>
-              <p class="leadership-summary">${escapeHtml(item.summary)}</p>
-            </article>`
+              <article class="service reveal">
+                <p class="service-category">${escapeHtml(item.category)}</p>
+                <h3 class="service-org">${escapeHtml(item.organization)}</h3>
+                ${item.chapter ? `<p class="service-chapter">${escapeHtml(item.chapter)}</p>` : ""}
+                <p class="service-role">${escapeHtml(item.role)}</p>
+                <p class="service-summary">${escapeHtml(item.summary)}</p>
+              </article>`
     )
     .join("");
 
 const renderParagraphs = (items = []) =>
   items.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n            ");
+
+const renderAffiliation = (affiliation) =>
+  affiliation
+    ? `<p class="hero-affiliation">${escapeHtml(affiliation)}</p>`
+    : "";
+
+const renderEmail = (email) =>
+  email
+    ? `<a class="link-row" href="mailto:${escapeHtml(email)}">
+              <span class="link-row-key">Email</span>
+              <span class="link-row-value">${escapeHtml(email)}</span>
+            </a>`
+    : "";
 
 const replaceTokens = (template, content) => {
   const tokens = {
@@ -168,14 +319,27 @@ const replaceTokens = (template, content) => {
     "%%SOCIAL_IMAGE%%": escapeHtml(content.meta.socialImage),
     "%%PROFILE_NAME%%": escapeHtml(content.profile.name),
     "%%PROFILE_SHORT_NAME%%": escapeHtml(content.profile.shortName),
+    "%%PROFILE_INITIALS%%": escapeHtml(content.profile.initials),
     "%%PROFILE_EYEBROW%%": escapeHtml(content.profile.eyebrow),
+    "%%PROFILE_ROLE%%": escapeHtml(content.profile.role),
     "%%PROFILE_INTRODUCTION%%": escapeHtml(content.profile.introduction),
     "%%PROFILE_LOCATION%%": escapeHtml(content.profile.location),
+    "%%AFFILIATION_BLOCK%%": renderAffiliation(content.profile.affiliation),
+    "%%EMAIL_ROW%%": renderEmail(content.profile.email),
     "%%GITHUB_URL%%": escapeHtml(content.profile.github),
-    "%%SIGNAL_MAP%%": renderSignalMap(content.signalMap),
+    "%%SCHOLAR_URL%%": escapeHtml(content.scholar.profileUrl),
+    "%%SCHOLAR_SOURCE%%": escapeHtml(content.scholar.source),
+    "%%SCHOLAR_RETRIEVED%%": escapeHtml(content.scholar.retrieved),
+    "%%RECENT_LABEL%%": escapeHtml(content.scholar.recentLabel),
+    "%%INDEXED_WORKS%%": escapeHtml(content.scholar.indexedWorks),
+    "%%YEAR_SPAN%%": escapeHtml(content.scholar.yearSpan),
+    "%%CHART_TITLE%%": escapeHtml(content.scholar.chart.title),
+    "%%CHART_CAPTION%%": escapeHtml(content.scholar.chart.caption),
+    "%%CHART%%": renderChart(content.scholar.chart),
+    "%%METRICS%%": renderMetrics(content.scholar.metrics, content.scholar.recentLabel),
     "%%STATS%%": renderStats(content.stats),
-    "%%PILLARS%%": renderPillars(content.pillars),
     "%%RESEARCH%%": renderResearch(content.research),
+    "%%PUBLICATIONS%%": renderPublications(content.publications),
     "%%TEACHING%%": renderTeaching(content.teaching),
     "%%LEADERSHIP%%": renderLeadership(content.leadership),
     "%%ABOUT_EYEBROW%%": escapeHtml(content.about.eyebrow),

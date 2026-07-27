@@ -3,22 +3,27 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f4f1e8">
-    <meta name="description" content="The personal portfolio of Yuelong (John) Guo, spanning biomedical research, course design and teaching, and volunteer community leadership.">
+    <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#12161a" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="Yuelong (John) Guo is a bioinformatics scientist working across biomarker discovery, quantitative imaging, and large-scale human genomics, and a volunteer curriculum designer and community leader in North Carolina.">
 
-    <title>Yuelong (John) Guo — Research, Education &amp; Community</title>
+    <title>Yuelong (John) Guo — Computational Biology, Education &amp; Community</title>
     <link rel="canonical" href="https://yuelongguo.github.io/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
     <link rel="stylesheet" href="assets/css/main.css">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Yuelong (John) Guo — Research, Education &amp; Community">
-    <meta property="og:description" content="The personal portfolio of Yuelong (John) Guo, spanning biomedical research, course design and teaching, and volunteer community leadership.">
+    <meta property="og:title" content="Yuelong (John) Guo — Computational Biology, Education &amp; Community">
+    <meta property="og:description" content="Yuelong (John) Guo is a bioinformatics scientist working across biomarker discovery, quantitative imaging, and large-scale human genomics, and a volunteer curriculum designer and community leader in North Carolina.">
     <meta property="og:url" content="https://yuelongguo.github.io/">
     <meta property="og:image" content="https://yuelongguo.github.io/public/og.png">
-    <meta property="og:image:alt" content="Yuelong (John) Guo — Research, Education, Community">
+    <meta property="og:image:alt" content="Yuelong (John) Guo — research, education, community">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Yuelong (John) Guo — Research, Education &amp; Community">
-    <meta name="twitter:description" content="The personal portfolio of Yuelong (John) Guo, spanning biomedical research, course design and teaching, and volunteer community leadership.">
+    <meta name="twitter:title" content="Yuelong (John) Guo — Computational Biology, Education &amp; Community">
+    <meta name="twitter:description" content="Yuelong (John) Guo is a bioinformatics scientist working across biomarker discovery, quantitative imaging, and large-scale human genomics, and a volunteer curriculum designer and community leader in North Carolina.">
     <meta name="twitter:image" content="https://yuelongguo.github.io/public/og.png">
 
     <script>
@@ -37,299 +42,632 @@
         </a>
 
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
-          <span>Menu</span>
+          <span class="menu-toggle-text">Menu</span>
           <span class="menu-toggle-lines" aria-hidden="true"></span>
         </button>
 
         <nav id="site-navigation" class="site-nav" aria-label="Primary navigation">
-          <a href="#research">Research</a>
-          <a href="#teaching">Teaching</a>
-          <a href="#leadership">Leadership</a>
+          <a href="#research">Science</a>
+          <a href="#teaching">Education</a>
+          <a href="#leadership">Community</a>
           <a href="#about">About</a>
-          <a class="nav-external" href="https://github.com/YuelongGuo" target="_blank" rel="noreferrer">
-            GitHub <span aria-hidden="true">↗</span>
+          <a class="nav-external" href="https://scholar.google.com/citations?user=TM8sOzYAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">
+            Scholar <span aria-hidden="true">↗</span>
           </a>
         </nav>
       </div>
     </header>
 
     <main id="main">
-      <section id="top" class="hero shell" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow reveal">Bioinformatics scientist · educator · community leader</p>
-          <h1 id="hero-title" class="hero-title reveal">
-            <span>Turning complex signals</span>
-            <em>into shared progress.</em>
-          </h1>
-          <p class="hero-intro reveal">My work moves across biomedical research, technology education, and volunteer leadership—connecting evidence, learning, and community.</p>
+      <section id="top" class="hero" aria-labelledby="hero-title">
+        <div class="shell hero-shell">
+          <div class="hero-copy">
+            <p class="eyebrow reveal">Bioinformatics scientist · educator · community leader</p>
+            <h1 id="hero-title" class="hero-title reveal">Yuelong (John) Guo</h1>
+            
+            <p class="hero-role reveal">I work at the point where biological measurement becomes evidence — quantitative imaging, proteomic biomarkers, and human genetics at population scale.</p>
+            <p class="hero-intro reveal">A publication record spanning genetics, transfusion medicine, oncology, and neurodegeneration — alongside volunteer curriculum design and leadership across North Carolina&#039;s science, technology, and education communities.</p>
 
-          <div class="hero-actions reveal">
-            <a class="button button-primary" href="#research">Explore the work</a>
-            <a class="button button-text" href="#teaching">
-              See the courses <span aria-hidden="true">↓</span>
-            </a>
+            <div class="hero-actions reveal">
+              <a class="button button-primary" href="#research">Contributions to science</a>
+              <a class="button button-quiet" href="#teaching">Education &amp; community</a>
+            </div>
           </div>
+
+          <aside class="hero-card reveal" aria-label="Profile record">
+            <p class="hero-card-title">Record</p>
+            <dl class="hero-card-list">
+              <div>
+                <dt>Based in</dt>
+                <dd>North Carolina, USA</dd>
+              </div>
+              <div>
+                <dt>Publication years</dt>
+                <dd>2010–2025</dd>
+              </div>
+              <div>
+                <dt>Indexed works</dt>
+                <dd>57</dd>
+              </div>
+            </dl>
+
+            <div class="hero-card-links">
+              <a class="link-row" href="https://scholar.google.com/citations?user=TM8sOzYAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">
+                <span class="link-row-key">Scholar</span>
+                <span class="link-row-value">Publication record <span aria-hidden="true">↗</span></span>
+              </a>
+              <a class="link-row" href="https://github.com/YuelongGuo" target="_blank" rel="noreferrer">
+                <span class="link-row-key">GitHub</span>
+                <span class="link-row-value">Code &amp; teaching material <span aria-hidden="true">↗</span></span>
+              </a>
+              
+            </div>
+          </aside>
         </div>
 
-        <aside class="signal-panel reveal" aria-label="Areas of work">
-          <div class="signal-field" aria-hidden="true">
-            <span class="signal-orbit signal-orbit-one"></span>
-            <span class="signal-orbit signal-orbit-two"></span>
-            <span class="signal-dot signal-dot-one"></span>
-            <span class="signal-dot signal-dot-two"></span>
-            <span class="signal-dot signal-dot-three"></span>
-          </div>
-
-          <p class="signal-label">Signals → Service</p>
-          <ol class="signal-list">
+        <div class="shell">
+          <dl class="hero-stats reveal">
             
-            <li>
-              <span class="signal-number">01</span>
-              <span class="signal-name">Imaging</span>
-            </li>
-            <li>
-              <span class="signal-number">02</span>
-              <span class="signal-name">Proteomics</span>
-            </li>
-            <li>
-              <span class="signal-number">03</span>
-              <span class="signal-name">Course design</span>
-            </li>
-            <li>
-              <span class="signal-number">04</span>
-              <span class="signal-name">Community</span>
-            </li>
-          </ol>
-        </aside>
-
-        <dl class="hero-stats reveal">
-          
-          <div>
-            <dt>research themes</dt>
-            <dd>2</dd>
-          </div>
-          <div>
-            <dt>course programs</dt>
-            <dd>4</dd>
-          </div>
-          <div>
-            <dt>leadership roles</dt>
-            <dd>4</dd>
-          </div>
-        </dl>
+            <div class="stat">
+              <dt>
+                <span class="stat-label">h-index</span>
+                <span class="stat-note">Google Scholar</span>
+              </dt>
+              <dd>20</dd>
+            </div>
+            <div class="stat">
+              <dt>
+                <span class="stat-label">citations</span>
+                <span class="stat-note">all time</span>
+              </dt>
+              <dd>1,925</dd>
+            </div>
+            <div class="stat">
+              <dt>
+                <span class="stat-label">indexed works</span>
+                <span class="stat-note">2010–2025</span>
+              </dt>
+              <dd>57</dd>
+            </div>
+            <div class="stat">
+              <dt>
+                <span class="stat-label">volunteer roles</span>
+                <span class="stat-note">teaching &amp; service</span>
+              </dt>
+              <dd>8</dd>
+            </div>
+          </dl>
+        </div>
       </section>
 
-      <section class="orientation section-block" aria-labelledby="orientation-title">
+      <section id="research" class="science" aria-labelledby="science-title">
         <div class="shell">
           <div class="section-heading reveal">
-            <p class="section-index">A portfolio in three parts</p>
-            <h2 id="orientation-title">Science, learning, and service reinforce one another.</h2>
-          </div>
-
-          <div class="pillar-grid">
-            
-            <a class="pillar-card reveal" href="#research">
-              <span class="pillar-number">01</span>
-              <h3>Research &amp; biomedical data</h3>
-              <p>Earlier work in histology imaging and ongoing experience at the intersection of PD, proteomics, and biomarker research.</p>
-              <span class="pillar-link">
-                Explore <span aria-hidden="true">↘</span>
-              </span>
-            </a>
-            <a class="pillar-card reveal" href="#teaching">
-              <span class="pillar-number">02</span>
-              <h3>Teaching &amp; curriculum</h3>
-              <p>End-to-end course design paired with hands-on instruction across school, camp, and community learning programs.</p>
-              <span class="pillar-link">
-                Explore <span aria-hidden="true">↘</span>
-              </span>
-            </a>
-            <a class="pillar-card reveal" href="#leadership">
-              <span class="pillar-number">03</span>
-              <h3>Leadership &amp; service</h3>
-              <p>Volunteer leadership across scientific, technology, educational, and alumni communities in North Carolina.</p>
-              <span class="pillar-link">
-                Explore <span aria-hidden="true">↘</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section id="research" class="research section-block" aria-labelledby="research-title">
-        <div class="shell">
-          <div class="section-heading section-heading-split reveal">
-            <div>
-              <p class="section-index">01 · Research</p>
-              <h2 id="research-title">Following the signal.</h2>
-            </div>
+            <p class="section-index">01 — Contributions to science</p>
+            <h2 id="science-title">Measurement, made into evidence.</h2>
             <p class="section-deck">
-              Biomedical questions become useful when the data, context, and analytical choices stay connected.
+              Seven threads across quantitative imaging, proteomic biomarkers, and human genetics at
+              population scale — from a doctoral question about two interacting genomes to biomarker
+              work in neurodegeneration.
             </p>
           </div>
-
-          <div class="research-grid">
-            
-            <article id="histology-imaging" class="research-card reveal">
-              <div class="research-topline">
-                <p class="research-kicker">Earlier work</p>
-                <span class="research-number" aria-hidden="true">01</span>
-              </div>
-              <h3>Histology Imaging</h3>
-              <p class="research-summary">Earlier work involving histology imaging, where biological context and quantitative analysis meet.</p>
-              <ul class="tag-list" aria-label="Topics">
-                <li>Biomedical imaging</li><li>Quantitative analysis</li>
-              </ul>
-            </article>
-            <article id="pd-proteomics" class="research-card reveal">
-              <div class="research-topline">
-                <p class="research-kicker">Biomarker research</p>
-                <span class="research-number" aria-hidden="true">02</span>
-              </div>
-              <h3>PD Proteomics &amp; Biomarkers</h3>
-              <p class="research-summary">Work at the intersection of PD, proteomics, and biomarker research.</p>
-              <ul class="tag-list" aria-label="Topics">
-                <li>Proteomics</li><li>Biomarkers</li><li>Translational research</li>
-              </ul>
-            </article>
-          </div>
         </div>
-      </section>
 
-      <section id="teaching" class="teaching section-block" aria-labelledby="teaching-title">
-        <div class="shell">
-          <div class="section-heading section-heading-split reveal">
-            <div>
-              <p class="section-index">02 · Teaching & curriculum</p>
-              <h2 id="teaching-title">Designing the whole learning journey.</h2>
-            </div>
-            <p class="section-deck">
-              The role goes beyond instruction: each program begins with curriculum design and continues into the classroom.
-            </p>
-          </div>
-
-          <div class="teaching-layout">
-            <aside class="teaching-statement reveal">
-              <p class="statement-kicker">Course design + instruction</p>
-              <blockquote>
-                “I don’t just teach a course. I design the path through it.”
-              </blockquote>
-              <p>
-                Four programs, built for their learning setting and taught from start to finish.
+        <div class="metrics-band">
+          <div class="shell">
+            <div class="metrics-head reveal">
+              <h3 class="metrics-title">Summary of contribution</h3>
+              <p class="metrics-source">
+                <a href="https://scholar.google.com/citations?user=TM8sOzYAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
+                <span class="metrics-retrieved">retrieved July 2026</span>
               </p>
-            </aside>
+            </div>
 
-            <ol class="teaching-timeline">
-              
-              <li class="teaching-item reveal">
-                <span class="teaching-period">2023–2024</span>
-                <article class="teaching-card">
-                  <p class="teaching-program">Course program</p>
-                  <h3>Cary Chinese School</h3>
-                  <ul class="role-list" aria-label="Roles">
-                    <li>Curriculum Designer</li><li>Instructor</li>
-                  </ul>
-                  <p class="teaching-summary">Designed the complete course and served as an instructor.</p>
-                </article>
-              </li>
-              <li class="teaching-item reveal">
-                <span class="teaching-period">2025</span>
-                <article class="teaching-card">
-                  <p class="teaching-program">Summer Camp</p>
-                  <h3>RTAI</h3>
-                  <ul class="role-list" aria-label="Roles">
-                    <li>Curriculum Designer</li><li>Instructor</li>
-                  </ul>
-                  <p class="teaching-summary">Designed the complete summer camp course and taught the program.</p>
-                </article>
-              </li>
-              <li class="teaching-item reveal">
-                <span class="teaching-period">2026</span>
-                <article class="teaching-card">
-                  <p class="teaching-program">Summer Camp</p>
-                  <h3>CAST</h3>
-                  <ul class="role-list" aria-label="Roles">
-                    <li>Curriculum Designer</li><li>Instructor</li>
-                  </ul>
-                  <p class="teaching-summary">Designed the complete summer camp course and taught the program.</p>
-                </article>
-              </li>
-              <li class="teaching-item reveal">
-                <span class="teaching-period">2026</span>
-                <article class="teaching-card">
-                  <p class="teaching-program">AI Saturdays</p>
-                  <h3>RTAI</h3>
-                  <ul class="role-list" aria-label="Roles">
-                    <li>Curriculum Designer</li><li>Instructor</li>
-                  </ul>
-                  <p class="teaching-summary">Designed the complete AI Saturdays course and served as an instructor.</p>
-                </article>
-              </li>
-            </ol>
+            <div class="metrics-layout">
+              <div class="metrics-grid reveal">
+                
+              <article class="metric">
+                <p class="metric-key">h-index</p>
+                <p class="metric-value">20</p>
+                <p class="metric-recent">
+                  <span class="metric-recent-value">19</span>
+                  <span class="metric-recent-label">since 2021</span>
+                </p>
+                <p class="metric-note">20 works cited at least 20 times each</p>
+              </article>
+              <article class="metric">
+                <p class="metric-key">citations</p>
+                <p class="metric-value">1,925</p>
+                <p class="metric-recent">
+                  <span class="metric-recent-value">1,447</span>
+                  <span class="metric-recent-label">since 2021</span>
+                </p>
+                <p class="metric-note">75% of all citations have accrued since 2021</p>
+              </article>
+              <article class="metric">
+                <p class="metric-key">i10-index</p>
+                <p class="metric-value">30</p>
+                <p class="metric-recent">
+                  <span class="metric-recent-value">24</span>
+                  <span class="metric-recent-label">since 2021</span>
+                </p>
+                <p class="metric-note">30 works cited at least 10 times each</p>
+              </article>
+              </div>
+
+              <figure class="chart-figure reveal">
+                <figcaption class="chart-head">
+                  <h4 id="chart-title" class="chart-title">Citation distribution and the h-index</h4>
+                </figcaption>
+                <div class="chart-scroll" tabindex="0" role="group" aria-label="Citation distribution chart, scrollable">
+                  <svg class="chart" viewBox="0 0 660 290" role="img" aria-labelledby="chart-title chart-caption" preserveAspectRatio="xMidYMid meet">
+          <g>
+          <line class="chart-grid" x1="46" x2="646" y1="24.5" y2="24.5" />
+          <text class="chart-axis-text" x="36" y="28.0" text-anchor="end">250</text>
+          <line class="chart-grid" x1="46" x2="646" y1="107.4" y2="107.4" />
+          <text class="chart-axis-text" x="36" y="110.9" text-anchor="end">100</text>
+          <line class="chart-grid" x1="46" x2="646" y1="149.1" y2="149.1" />
+          <text class="chart-axis-text" x="36" y="152.6" text-anchor="end">50</text>
+          <line class="chart-grid" x1="46" x2="646" y1="186.2" y2="186.2" />
+          <text class="chart-axis-text" x="36" y="189.7" text-anchor="end">20</text>
+          <line class="chart-grid" x1="46" x2="646" y1="250.0" y2="250.0" />
+          <text class="chart-axis-text" x="36" y="253.5" text-anchor="end">0</text>
+          </g>
+          <rect class="chart-square" x="46" y="186.2" width="375.0" height="63.8" />
+          <g>
+          <rect class="chart-bar chart-bar-core" x="49.6" y="24.0" width="11.6" height="226.0" rx="1">
+            <title>Rank 1: 251 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="68.3" y="44.3" width="11.6" height="205.7" rx="1">
+            <title>Rank 2: 208 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="87.1" y="65.1" width="11.6" height="184.9" rx="1">
+            <title>Rank 3: 168 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="105.8" y="80.6" width="11.6" height="169.4" rx="1">
+            <title>Rank 4: 141 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="124.6" y="102.5" width="11.6" height="147.5" rx="1">
+            <title>Rank 5: 107 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="143.3" y="103.8" width="11.6" height="146.2" rx="1">
+            <title>Rank 6: 105 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="162.1" y="108.8" width="11.6" height="141.2" rx="1">
+            <title>Rank 7: 98 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="180.8" y="116.2" width="11.6" height="133.8" rx="1">
+            <title>Rank 8: 88 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="199.6" y="130.7" width="11.6" height="119.3" rx="1">
+            <title>Rank 9: 70 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="218.3" y="132.4" width="11.6" height="117.6" rx="1">
+            <title>Rank 10: 68 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="237.1" y="133.2" width="11.6" height="116.8" rx="1">
+            <title>Rank 11: 67 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="255.8" y="135.9" width="11.6" height="114.1" rx="1">
+            <title>Rank 12: 64 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="274.6" y="137.7" width="11.6" height="112.3" rx="1">
+            <title>Rank 13: 62 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="293.3" y="138.6" width="11.6" height="111.4" rx="1">
+            <title>Rank 14: 61 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="312.1" y="163.2" width="11.6" height="86.8" rx="1">
+            <title>Rank 15: 37 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="330.8" y="174.5" width="11.6" height="75.5" rx="1">
+            <title>Rank 16: 28 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="349.6" y="175.9" width="11.6" height="74.1" rx="1">
+            <title>Rank 17: 27 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="368.3" y="180.1" width="11.6" height="69.9" rx="1">
+            <title>Rank 18: 24 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="387.1" y="181.6" width="11.6" height="68.4" rx="1">
+            <title>Rank 19: 23 citations</title>
+          </rect>
+          <rect class="chart-bar chart-bar-core" x="405.8" y="183.1" width="11.6" height="66.9" rx="1">
+            <title>Rank 20: 22 citations</title>
+          </rect>
+          <rect class="chart-bar" x="424.6" y="186.2" width="11.6" height="63.8" rx="1">
+            <title>Rank 21: 20 citations</title>
+          </rect>
+          <rect class="chart-bar" x="443.3" y="187.8" width="11.6" height="62.2" rx="1">
+            <title>Rank 22: 19 citations</title>
+          </rect>
+          <rect class="chart-bar" x="462.1" y="192.9" width="11.6" height="57.1" rx="1">
+            <title>Rank 23: 16 citations</title>
+          </rect>
+          <rect class="chart-bar" x="480.8" y="196.6" width="11.6" height="53.4" rx="1">
+            <title>Rank 24: 14 citations</title>
+          </rect>
+          <rect class="chart-bar" x="499.6" y="198.6" width="11.6" height="51.4" rx="1">
+            <title>Rank 25: 13 citations</title>
+          </rect>
+          <rect class="chart-bar" x="518.3" y="198.6" width="11.6" height="51.4" rx="1">
+            <title>Rank 26: 13 citations</title>
+          </rect>
+          <rect class="chart-bar" x="537.1" y="198.6" width="11.6" height="51.4" rx="1">
+            <title>Rank 27: 13 citations</title>
+          </rect>
+          <rect class="chart-bar" x="555.8" y="200.6" width="11.6" height="49.4" rx="1">
+            <title>Rank 28: 12 citations</title>
+          </rect>
+          <rect class="chart-bar" x="574.6" y="202.7" width="11.6" height="47.3" rx="1">
+            <title>Rank 29: 11 citations</title>
+          </rect>
+          <rect class="chart-bar" x="593.3" y="202.7" width="11.6" height="47.3" rx="1">
+            <title>Rank 30: 11 citations</title>
+          </rect>
+          <rect class="chart-bar" x="612.1" y="209.7" width="11.6" height="40.3" rx="1">
+            <title>Rank 31: 8 citations</title>
+          </rect>
+          <rect class="chart-bar" x="630.8" y="209.7" width="11.6" height="40.3" rx="1">
+            <title>Rank 32: 8 citations</title>
+          </rect>
+          </g>
+          <line class="chart-threshold" x1="46" x2="463.0" y1="186.2" y2="186.2" />
+          <line class="chart-threshold" x1="421.0" x2="421.0" y1="186.2" y2="250" />
+          <circle class="chart-crossing" cx="421.0" cy="186.2" r="3.5" />
+          <text class="chart-callout" x="431.0" y="176.2">h = 20</text>
+          <text class="chart-axis-title" x="46" y="284">works ranked by citations →</text>
+          
+          <text class="chart-axis-text" x="55.4" y="270" text-anchor="middle">1</text>
+          <text class="chart-axis-text" x="224.1" y="270" text-anchor="middle">10</text>
+          <text class="chart-axis-text" x="411.6" y="270" text-anchor="middle">20</text>
+          <text class="chart-axis-text" x="599.1" y="270" text-anchor="middle">30</text>
+        </svg>
+                </div>
+                <p id="chart-caption" class="chart-caption">Each bar is one of the 32 most-cited works, ranked by citation count. The shaded rectangle is the h-index: the largest number h such that h works have at least h citations each. Twenty bars clear the twenty-citation line; the twenty-first does not.</p>
+              </figure>
+            </div>
           </div>
+        </div>
+
+        <div class="shell">
+          <div class="subsection-heading reveal">
+            <h3 id="themes-title">Research threads</h3>
+            <p>Ordered by proximity to current work, not by citation count.</p>
+          </div>
+
+          <div class="theme-list" aria-labelledby="themes-title">
+            
+            <article id="theme-imaging" class="theme reveal">
+              <div class="theme-index" aria-hidden="true">01</div>
+              <div class="theme-body">
+                <p class="theme-kicker">Quantitative imaging</p>
+                <h3 class="theme-title">Histology imaging</h3>
+                <p class="theme-summary">Turning stained tissue sections into measurements: segmentation, morphometry, and reproducible quantification of structures that pathologists read qualitatively.</p>
+                <ul class="tag-list" aria-label="Topics">
+                  <li>Image analysis</li><li>Tissue morphometry</li><li>Reproducibility</li>
+                </ul>
+              </div>
+            </article>
+            <article id="theme-neuro-biomarkers" class="theme reveal">
+              <div class="theme-index" aria-hidden="true">02</div>
+              <div class="theme-body">
+                <p class="theme-kicker">Neurodegeneration</p>
+                <h3 class="theme-title">PD proteomics &amp; biomarkers</h3>
+                <p class="theme-summary">Plasma and tissue proteomics for Parkinson&#039;s disease and related neurodegeneration — biomarker discovery, patient stratification, and model systems that make the biology tractable.</p>
+                <ul class="tag-list" aria-label="Topics">
+                  <li>Proteomics</li><li>Parkinson&#039;s disease</li><li>Patient stratification</li><li>Organoid models</li>
+                </ul>
+              </div>
+            </article>
+            <article id="theme-blood-genomics" class="theme reveal">
+              <div class="theme-index" aria-hidden="true">03</div>
+              <div class="theme-body">
+                <p class="theme-kicker">REDS-III RBC-Omics</p>
+                <h3 class="theme-title">Blood systems genomics</h3>
+                <p class="theme-summary">The largest thread in the record: donor genetics, red blood cell storage biology, and hemolysis across a multi-ancestry cohort of more than 13,000 blood donors.</p>
+                <ul class="tag-list" aria-label="Topics">
+                  <li>Transfusion medicine</li><li>Metabolomics</li><li>Multi-ancestry cohorts</li>
+                </ul>
+              </div>
+            </article>
+            <article id="theme-statistical-genetics" class="theme reveal">
+              <div class="theme-index" aria-hidden="true">04</div>
+              <div class="theme-body">
+                <p class="theme-kicker">Population scale</p>
+                <h3 class="theme-title">Statistical genetics &amp; GWAS</h3>
+                <p class="theme-summary">Genome-wide association studies across European and African-American ancestries, plus method evaluation for integrating biological function with GWAS summary statistics.</p>
+                <ul class="tag-list" aria-label="Topics">
+                  <li>GWAS</li><li>Multi-ancestry</li><li>Method benchmarking</li><li>Heritability</li>
+                </ul>
+              </div>
+            </article>
+            <article id="theme-sickle-cell" class="theme reveal">
+              <div class="theme-index" aria-hidden="true">05</div>
+              <div class="theme-body">
+                <p class="theme-kicker">Cohort genomics</p>
+                <h3 class="theme-title">Sickle cell disease cohorts</h3>
+                <p class="theme-summary">Clinical and genetic ancestry profiling in a large multi-centre Brazilian sickle cell disease cohort, and the genetic predictors of its complications.</p>
+                <ul class="tag-list" aria-label="Topics">
+                  <li>Sickle cell disease</li><li>Genetic ancestry</li><li>Clinical genomics</li>
+                </ul>
+              </div>
+            </article>
+            <article id="theme-oncology-pharmacology" class="theme reveal">
+              <div class="theme-index" aria-hidden="true">06</div>
+              <div class="theme-body">
+                <p class="theme-kicker">Preclinical &amp; translational</p>
+                <h3 class="theme-title">Oncology pharmacogenomics</h3>
+                <p class="theme-summary">Pediatric Preclinical Testing Consortium evaluations of targeted agents in childhood leukemia and solid tumours, plus immunogenomic profiling of response to checkpoint inhibitors and high-dose IL-2.</p>
+                <ul class="tag-list" aria-label="Topics">
+                  <li>Pediatric oncology</li><li>Xenograft models</li><li>Immunogenomics</li><li>Response prediction</li>
+                </ul>
+              </div>
+            </article>
+            <article id="theme-genetical-genomics" class="theme reveal">
+              <div class="theme-index" aria-hidden="true">07</div>
+              <div class="theme-body">
+                <p class="theme-kicker">Where it started</p>
+                <h3 class="theme-title">Genetical genomics</h3>
+                <p class="theme-summary">Doctoral and early work inferring interaction networks between species — cross-species eQTL mapping of the plant–nematode symbiosis, genome annotation, and molecular phylogenetics.</p>
+                <ul class="tag-list" aria-label="Topics">
+                  <li>eQTL mapping</li><li>Comparative genomics</li><li>Phylogenetics</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="subsection-heading subsection-heading-spaced reveal">
+            <h3 id="publications-title">Selected publications</h3>
+            <p>Nine of 57 indexed works, chosen to span the threads above.</p>
+          </div>
+
+          <ol class="publication-list" aria-labelledby="publications-title">
+            
+              <li class="publication reveal">
+                <p class="publication-meta">
+                  <span class="publication-authors">Kanias et al.</span>
+                  <span class="publication-year">2017</span>
+                  
+                </p>
+                <p class="publication-title">Ethnicity, sex, and age are determinants of red blood cell storage and stress hemolysis: results of the REDS-III RBC-Omics study</p>
+                <p class="publication-venue">
+                  <cite>Blood Advances</cite>
+                  <span class="publication-citations"><span class="publication-count">251</span> citations</span>
+                </p>
+              </li>
+              <li class="publication reveal">
+                <p class="publication-meta">
+                  <span class="publication-authors">Khaw et al.</span>
+                  <span class="publication-year">2016</span>
+                  
+                </p>
+                <p class="publication-title">Venetoclax responses of pediatric ALL xenografts reveal sensitivity of MLL-rearranged leukemia</p>
+                <p class="publication-venue">
+                  <cite>Blood</cite>
+                  <span class="publication-citations"><span class="publication-count">208</span> citations</span>
+                </p>
+              </li>
+              <li class="publication reveal">
+                <p class="publication-meta">
+                  <span class="publication-authors">D&#039;Alessandro et al.</span>
+                  <span class="publication-year">2021</span>
+                  
+                </p>
+                <p class="publication-title">Donor sex, age and ethnicity impact stored red blood cell antioxidant metabolism through mechanisms in part explained by glucose 6-phosphate dehydrogenase levels and activity</p>
+                <p class="publication-venue">
+                  <cite>Haematologica</cite>
+                  <span class="publication-citations"><span class="publication-count">168</span> citations</span>
+                </p>
+              </li>
+              <li class="publication reveal">
+                <p class="publication-meta">
+                  <span class="publication-authors">Quach et al.</span>
+                  <span class="publication-year">2020</span>
+                  
+                </p>
+                <p class="publication-title">Expanding the genetic architecture of nicotine dependence and its shared genetics with multiple traits</p>
+                <p class="publication-venue">
+                  <cite>Nature Communications</cite>
+                  <span class="publication-citations"><span class="publication-count">141</span> citations</span>
+                </p>
+              </li>
+              <li class="publication reveal">
+                <p class="publication-meta">
+                  <span class="publication-authors">Page et al.</span>
+                  <span class="publication-year">2021</span>
+                  
+                </p>
+                <p class="publication-title">Multiple-ancestry genome-wide association study identifies 27 loci associated with measures of hemolysis following blood storage</p>
+                <p class="publication-venue">
+                  <cite>The Journal of Clinical Investigation</cite>
+                  <span class="publication-citations"><span class="publication-count">107</span> citations</span>
+                </p>
+              </li>
+              <li class="publication reveal">
+                <p class="publication-meta">
+                  <span class="publication-authors">Kueffner et al.</span>
+                  <span class="publication-year">2019</span>
+                  
+                </p>
+                <p class="publication-title">Stratification of amyotrophic lateral sclerosis patients: a crowdsourcing approach</p>
+                <p class="publication-venue">
+                  <cite>Scientific Reports</cite>
+                  <span class="publication-citations"><span class="publication-count">88</span> citations</span>
+                </p>
+              </li>
+              <li class="publication reveal">
+                <p class="publication-meta">
+                  <span class="publication-authors">Guo et al.</span>
+                  <span class="publication-year">2019</span>
+                  <span class="publication-flag">First author</span>
+                </p>
+                <p class="publication-title">Development and evaluation of a transfusion medicine genome wide genotyping array</p>
+                <p class="publication-venue">
+                  <cite>Transfusion</cite>
+                  <span class="publication-citations"><span class="publication-count">64</span> citations</span>
+                </p>
+              </li>
+              <li class="publication reveal">
+                <p class="publication-meta">
+                  <span class="publication-authors">Guo et al.</span>
+                  <span class="publication-year">2017</span>
+                  <span class="publication-flag">First author</span>
+                </p>
+                <p class="publication-title">Networks underpinning symbiosis revealed through cross-species eQTL mapping</p>
+                <p class="publication-venue">
+                  <cite>Genetics</cite>
+                  <span class="publication-citations"><span class="publication-count">24</span> citations</span>
+                </p>
+              </li>
+              <li class="publication reveal">
+                <p class="publication-meta">
+                  <span class="publication-authors">Kshirsagar et al.</span>
+                  <span class="publication-year">2025</span>
+                  
+                </p>
+                <p class="publication-title">Multi-region brain organoids integrating cerebral, mid-hindbrain, and endothelial systems</p>
+                <p class="publication-venue">
+                  <cite>Advanced Science</cite>
+                  <span class="publication-citations"><span class="publication-count">19</span> citations</span>
+                </p>
+              </li>
+          </ol>
+
+          <p class="publication-footnote reveal">
+            <a class="button button-quiet" href="https://scholar.google.com/citations?user=TM8sOzYAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">
+              Full publication record on Google Scholar <span aria-hidden="true">↗</span>
+            </a>
+          </p>
         </div>
       </section>
 
-      <section id="leadership" class="leadership section-block" aria-labelledby="leadership-title">
+      <section id="teaching" class="education" aria-labelledby="education-title">
         <div class="shell">
-          <div class="section-heading section-heading-split reveal">
-            <div>
-              <p class="section-index">03 · Leadership & service</p>
-              <h2 id="leadership-title">Building the communities around the work.</h2>
-            </div>
+          <div class="section-heading reveal">
+            <p class="section-index">02 — Volunteer education</p>
+            <h2 id="education-title">Designing the path, then walking it.</h2>
             <p class="section-deck">
-              Volunteer roles across technology, science, education, and alumni communities in North Carolina.
+              Every program below was built as well as taught: scope, sequence, and materials first,
+              then the classroom. All of it is volunteer work.
             </p>
           </div>
 
-          <div class="leadership-grid">
+          <ol class="course-list">
             
-            <article class="leadership-card reveal">
-              <p class="leadership-category">Technology &amp; education</p>
-              <h3>RTAI</h3>
-              
-              <p class="leadership-role">Vice President</p>
-              <p class="leadership-summary">Volunteer leadership supporting a community centered on technology and learning.</p>
-            </article>
-            <article class="leadership-card reveal">
-              <p class="leadership-category">Scientific community</p>
-              <h3>SAPA</h3>
-              
-              <p class="leadership-role">IT Director</p>
-              <p class="leadership-summary">Volunteer technology leadership in support of a professional scientific community.</p>
-            </article>
-            <article class="leadership-card reveal">
-              <p class="leadership-category">Community leadership</p>
-              <h3>CASTNC</h3>
-              
-              <p class="leadership-role">President</p>
-              <p class="leadership-summary">Volunteer leadership serving a North Carolina science and technology community.</p>
-            </article>
-            <article class="leadership-card reveal">
-              <p class="leadership-category">Alumni community</p>
-              <h3>Zhejiang University Alumni Association</h3>
-              <p class="leadership-chapter">North Carolina Chapter</p>
-              <p class="leadership-role">Vice President</p>
-              <p class="leadership-summary">Volunteer leadership helping connect and serve the university’s alumni community in North Carolina.</p>
-            </article>
+              <li class="course reveal">
+                <p class="course-period">2023–2024</p>
+                <div class="course-body">
+                  <p class="course-program">Academic year course</p>
+                  <h3 class="course-org">Cary Chinese School</h3>
+                  <p class="course-summary">Designed the full course and taught it across the academic year.</p>
+                  <ul class="role-list" aria-label="Roles">
+                    <li>Curriculum Designer</li><li>Instructor</li>
+                  </ul>
+                </div>
+              </li>
+              <li class="course reveal">
+                <p class="course-period">2025</p>
+                <div class="course-body">
+                  <p class="course-program">Summer Camp</p>
+                  <h3 class="course-org">RTAI</h3>
+                  <p class="course-summary">Built the summer camp curriculum from scratch and taught the full program.</p>
+                  <ul class="role-list" aria-label="Roles">
+                    <li>Curriculum Designer</li><li>Instructor</li>
+                  </ul>
+                </div>
+              </li>
+              <li class="course reveal">
+                <p class="course-period">2026</p>
+                <div class="course-body">
+                  <p class="course-program">Summer Camp</p>
+                  <h3 class="course-org">CAST</h3>
+                  <p class="course-summary">Designed and delivered the summer camp program end to end.</p>
+                  <ul class="role-list" aria-label="Roles">
+                    <li>Curriculum Designer</li><li>Instructor</li>
+                  </ul>
+                </div>
+              </li>
+              <li class="course reveal">
+                <p class="course-period">2026</p>
+                <div class="course-body">
+                  <p class="course-program">AI Saturdays</p>
+                  <h3 class="course-org">RTAI</h3>
+                  <p class="course-summary">Designed the AI Saturdays course and taught the sessions.</p>
+                  <ul class="role-list" aria-label="Roles">
+                    <li>Curriculum Designer</li><li>Instructor</li>
+                  </ul>
+                </div>
+              </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="leadership" class="community" aria-labelledby="community-title">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <p class="section-index">03 — Community &amp; service</p>
+            <h2 id="community-title">Organizations run on volunteers.</h2>
+            <p class="section-deck">
+              Elected and appointed volunteer roles across scientific, technology, educational, and
+              alumni communities in North Carolina.
+            </p>
+          </div>
+
+          <div class="service-grid">
+            
+              <article class="service reveal">
+                <p class="service-category">Technology &amp; education</p>
+                <h3 class="service-org">RTAI</h3>
+                
+                <p class="service-role">Vice President</p>
+                <p class="service-summary">Volunteer leadership for a community built around technology education and hands-on learning.</p>
+              </article>
+              <article class="service reveal">
+                <p class="service-category">Scientific community</p>
+                <h3 class="service-org">SAPA</h3>
+                
+                <p class="service-role">IT Director</p>
+                <p class="service-summary">Volunteer technology leadership for a professional association of scientists and pharmaceutical professionals.</p>
+              </article>
+              <article class="service reveal">
+                <p class="service-category">Community leadership</p>
+                <h3 class="service-org">CASTNC</h3>
+                
+                <p class="service-role">President</p>
+                <p class="service-summary">Volunteer leadership of a North Carolina association for science and technology professionals.</p>
+              </article>
+              <article class="service reveal">
+                <p class="service-category">Alumni community</p>
+                <h3 class="service-org">Zhejiang University Alumni Association</h3>
+                <p class="service-chapter">North Carolina Chapter</p>
+                <p class="service-role">Vice President</p>
+                <p class="service-summary">Volunteer leadership connecting and serving the university&#039;s alumni community across North Carolina.</p>
+              </article>
           </div>
         </div>
       </section>
 
-      <section id="about" class="about section-block" aria-labelledby="about-title">
+      <section id="about" class="about" aria-labelledby="about-title">
         <div class="shell about-grid">
           <div class="about-heading reveal">
-            <p class="section-index">04 · About</p>
-            <p class="about-eyebrow">One practice, three settings</p>
+            <p class="section-index">04 — About</p>
             <h2 id="about-title">Researcher. Course builder. Community organizer.</h2>
+            <p class="about-eyebrow">One method, three settings</p>
           </div>
 
           <div class="about-copy reveal">
-            <p>Across research, classrooms, and volunteer organizations, I’m drawn to the same challenge: bringing structure to complexity and helping people learn, build, and contribute.</p>
-            <p>This site is designed to grow with the work. Research case studies can expand with methods and publications; course stories can add curricula and learner outcomes; leadership roles can document initiatives and community impact.</p>
-            <a class="button button-text about-link" href="https://github.com/YuelongGuo" target="_blank" rel="noreferrer">
-              Continue on GitHub <span aria-hidden="true">↗</span>
-            </a>
+            <p>My research career has moved from plant and nematode genomes to human population genetics, from transfusion medicine to neurodegeneration. The through-line is method rather than organism: define the measurement carefully, respect what the data can and cannot support, and make the analysis reproducible by someone else.</p>
+            <p>The same instinct shows up outside the lab. Designing a course means deciding what a learner should be able to do at the end and building the shortest honest path there. Running a volunteer organization means the same work applied to people and process instead of data.</p>
+            <p>This site is built to grow with the work: research themes can expand into methods and outcomes, courses into curricula and learner results, and service roles into documented initiatives.</p>
+            <div class="about-actions">
+              <a class="button button-quiet" href="https://scholar.google.com/citations?user=TM8sOzYAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">
+                Google Scholar <span aria-hidden="true">↗</span>
+              </a>
+              <a class="button button-quiet" href="https://github.com/YuelongGuo" target="_blank" rel="noreferrer">
+                GitHub <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -337,13 +675,13 @@
 
     <footer class="site-footer">
       <div class="shell footer-grid">
-        <div>
+        <div class="footer-identity">
           <p class="footer-name">Yuelong (John) Guo</p>
-          <p class="footer-note">Research · Education · Community</p>
+          <p class="footer-note">Science · Education · Community</p>
         </div>
 
         <div class="footer-meta">
-          <p>North Carolina</p>
+          <p>North Carolina, USA</p>
           <p>© <span data-current-year>2026</span></p>
         </div>
 

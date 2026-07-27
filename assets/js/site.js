@@ -36,8 +36,10 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 800) closeMenu();
+// Matches the 48rem breakpoint in main.css where the nav stops collapsing.
+const desktopNav = window.matchMedia("(min-width: 48.0625rem)");
+desktopNav.addEventListener("change", (event) => {
+  if (event.matches) closeMenu();
 });
 
 if (reducedMotion || !("IntersectionObserver" in window)) {

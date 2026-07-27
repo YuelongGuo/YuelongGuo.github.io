@@ -51,11 +51,58 @@ test("experience detail fields remain structured for future expansion", () => {
   assert.ok(content.leadership.every((item) => Array.isArray(item.contributions)));
 });
 
-test("navigation targets are unique and keyboard focus is visible", () => {
+test("the citation series reproduces the published h-index and i10-index", () => {
+  const series = [...content.scholar.chart.series].sort((a, b) => b - a);
+  const hIndex = series.filter((value, index) => value >= index + 1).length;
+  const i10 = series.filter((value) => value >= 10).length;
+
+  const stated = Object.fromEntries(
+    content.scholar.metrics.map((metric) => [metric.key, Number(metric.all)])
+  );
+
+  assert.equal(hIndex, stated["h-index"], "series must yield the stated h-index");
+  assert.equal(i10, stated["i10-index"], "series must yield the stated i10-index");
+  assert.equal(Number(content.scholar.chart.highlight), hIndex);
+});
+
+test("the h-index chart and its metrics reach the page", () => {
+  assert.match(html, /class="chart"/);
+  assert.match(html, /class="chart-bar chart-bar-core"/);
+  assert.match(html, /h = 20/);
+  assert.ok(html.includes("1,925"), "all-time citation count should be rendered");
+  assert.match(html, /Google Scholar/);
+  assert.match(html, new RegExp(content.scholar.retrieved), "metrics must be dated");
+});
+
+test("every research theme and selected publication is rendered", () => {
+  for (const theme of content.research) {
+    assert.ok(html.includes(`id="theme-${theme.slug}"`), `missing theme ${theme.slug}`);
+  }
+
+  for (const publication of content.publications) {
+    assert.ok(html.includes(publication.venue), `missing venue ${publication.venue}`);
+  }
+});
+
+test("headline type stays within a professional scale", () => {
+  const remValues = [...css.matchAll(/font-size:[^;]*?(\d+(?:\.\d+)?)rem\s*\)?\s*;/g)].map((match) =>
+    Number(match[1])
+  );
+
+  const largest = Math.max(...remValues);
+  assert.ok(
+    largest <= 3.5,
+    `no declared font-size should exceed 3.5rem (56px); found ${largest}rem`
+  );
+});
+
+test("navigation targets are unique and accessibility affordances exist", () => {
   const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
   assert.equal(new Set(ids).size, ids.length, "HTML IDs should be unique");
   assert.match(css, /:focus-visible/);
   assert.match(css, /prefers-reduced-motion/);
+  assert.match(html, /role="img"/, "the chart must expose an accessible role");
+  assert.match(html, /aria-labelledby="chart-title chart-caption"/);
 });
 
 test("deployment output contains the page, worker, and social image", async () => {

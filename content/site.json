@@ -1,82 +1,94 @@
 {
   "meta": {
-    "title": "Yuelong (John) Guo — Research, Education & Community",
-    "description": "The personal portfolio of Yuelong (John) Guo, spanning biomedical research, course design and teaching, and volunteer community leadership.",
+    "title": "Yuelong (John) Guo — Computational Biology, Education & Community",
+    "description": "Yuelong (John) Guo is a bioinformatics scientist working across biomarker discovery, quantitative imaging, and large-scale human genomics, and a volunteer curriculum designer and community leader in North Carolina.",
     "url": "https://yuelongguo.github.io/",
     "socialImage": "https://yuelongguo.github.io/public/og.png"
   },
   "profile": {
     "name": "Yuelong (John) Guo",
     "shortName": "Yuelong Guo",
+    "initials": "YG",
     "eyebrow": "Bioinformatics scientist · educator · community leader",
-    "headline": "Turning complex signals into shared progress.",
-    "introduction": "My work moves across biomedical research, technology education, and volunteer leadership—connecting evidence, learning, and community.",
-    "location": "North Carolina",
-    "github": "https://github.com/YuelongGuo"
+    "role": "I work at the point where biological measurement becomes evidence — quantitative imaging, proteomic biomarkers, and human genetics at population scale.",
+    "affiliation": "",
+    "introduction": "A publication record spanning genetics, transfusion medicine, oncology, and neurodegeneration — alongside volunteer curriculum design and leadership across North Carolina's science, technology, and education communities.",
+    "location": "North Carolina, USA",
+    "github": "https://github.com/YuelongGuo",
+    "scholar": "https://scholar.google.com/citations?user=TM8sOzYAAAAJ&hl=en",
+    "email": ""
   },
-  "signalMap": [
-    {
-      "number": "01",
-      "label": "Imaging"
-    },
-    {
-      "number": "02",
-      "label": "Proteomics"
-    },
-    {
-      "number": "03",
-      "label": "Course design"
-    },
-    {
-      "number": "04",
-      "label": "Community"
-    }
-  ],
   "stats": [
     {
-      "value": "2",
-      "label": "research themes"
+      "value": "20",
+      "label": "h-index",
+      "note": "Google Scholar"
     },
     {
-      "value": "4",
-      "label": "course programs"
+      "value": "1,925",
+      "label": "citations",
+      "note": "all time"
     },
     {
-      "value": "4",
-      "label": "leadership roles"
+      "value": "57",
+      "label": "indexed works",
+      "note": "2010–2025"
+    },
+    {
+      "value": "8",
+      "label": "volunteer roles",
+      "note": "teaching & service"
     }
   ],
-  "pillars": [
-    {
-      "number": "01",
-      "title": "Research & biomedical data",
-      "summary": "Earlier work in histology imaging and ongoing experience at the intersection of PD, proteomics, and biomarker research.",
-      "anchor": "#research"
-    },
-    {
-      "number": "02",
-      "title": "Teaching & curriculum",
-      "summary": "End-to-end course design paired with hands-on instruction across school, camp, and community learning programs.",
-      "anchor": "#teaching"
-    },
-    {
-      "number": "03",
-      "title": "Leadership & service",
-      "summary": "Volunteer leadership across scientific, technology, educational, and alumni communities in North Carolina.",
-      "anchor": "#leadership"
+  "scholar": {
+    "source": "Google Scholar",
+    "profileUrl": "https://scholar.google.com/citations?user=TM8sOzYAAAAJ&hl=en",
+    "retrieved": "July 2026",
+    "recentLabel": "since 2021",
+    "indexedWorks": "57",
+    "yearSpan": "2010–2025",
+    "metrics": [
+      {
+        "key": "h-index",
+        "all": "20",
+        "recent": "19",
+        "note": "20 works cited at least 20 times each"
+      },
+      {
+        "key": "citations",
+        "all": "1,925",
+        "recent": "1,447",
+        "note": "75% of all citations have accrued since 2021"
+      },
+      {
+        "key": "i10-index",
+        "all": "30",
+        "recent": "24",
+        "note": "30 works cited at least 10 times each"
+      }
+    ],
+    "chart": {
+      "title": "Citation distribution and the h-index",
+      "caption": "Each bar is one of the 32 most-cited works, ranked by citation count. The shaded rectangle is the h-index: the largest number h such that h works have at least h citations each. Twenty bars clear the twenty-citation line; the twenty-first does not.",
+      "highlight": 20,
+      "shown": 32,
+      "series": [
+        251, 208, 168, 141, 107, 105, 98, 88, 70, 68,
+        67, 64, 62, 61, 37, 28, 27, 24, 23, 22,
+        20, 19, 16, 14, 13, 13, 13, 12, 11, 11,
+        8, 8, 8, 6, 5, 4, 4, 3, 3, 3,
+        2, 1, 1, 1, 1, 1, 1
+      ]
     }
-  ],
+  },
   "research": [
     {
-      "slug": "histology-imaging",
+      "slug": "imaging",
       "number": "01",
-      "kicker": "Earlier work",
-      "title": "Histology Imaging",
-      "summary": "Earlier work involving histology imaging, where biological context and quantitative analysis meet.",
-      "tags": [
-        "Biomedical imaging",
-        "Quantitative analysis"
-      ],
+      "kicker": "Quantitative imaging",
+      "title": "Histology imaging",
+      "summary": "Turning stained tissue sections into measurements: segmentation, morphometry, and reproducible quantification of structures that pathologists read qualitatively.",
+      "tags": ["Image analysis", "Tissue morphometry", "Reproducibility"],
       "details": {
         "context": "",
         "role": "",
@@ -87,16 +99,60 @@
       }
     },
     {
-      "slug": "pd-proteomics",
+      "slug": "neuro-biomarkers",
       "number": "02",
-      "kicker": "Biomarker research",
-      "title": "PD Proteomics & Biomarkers",
-      "summary": "Work at the intersection of PD, proteomics, and biomarker research.",
-      "tags": [
-        "Proteomics",
-        "Biomarkers",
-        "Translational research"
-      ],
+      "kicker": "Neurodegeneration",
+      "title": "PD proteomics & biomarkers",
+      "summary": "Plasma and tissue proteomics for Parkinson's disease and related neurodegeneration — biomarker discovery, patient stratification, and model systems that make the biology tractable.",
+      "tags": ["Proteomics", "Parkinson's disease", "Patient stratification", "Organoid models"],
+      "details": {
+        "context": "",
+        "role": "",
+        "methods": [],
+        "outcomes": [],
+        "publications": ["als-stratification", "brain-organoids"],
+        "media": []
+      }
+    },
+    {
+      "slug": "blood-genomics",
+      "number": "03",
+      "kicker": "REDS-III RBC-Omics",
+      "title": "Blood systems genomics",
+      "summary": "The largest thread in the record: donor genetics, red blood cell storage biology, and hemolysis across a multi-ancestry cohort of more than 13,000 blood donors.",
+      "tags": ["Transfusion medicine", "Metabolomics", "Multi-ancestry cohorts"],
+      "details": {
+        "context": "",
+        "role": "",
+        "methods": [],
+        "outcomes": [],
+        "publications": ["rbc-omics-hemolysis", "genotyping-array", "hemolysis-gwas"],
+        "media": []
+      }
+    },
+    {
+      "slug": "statistical-genetics",
+      "number": "04",
+      "kicker": "Population scale",
+      "title": "Statistical genetics & GWAS",
+      "summary": "Genome-wide association studies across European and African-American ancestries, plus method evaluation for integrating biological function with GWAS summary statistics.",
+      "tags": ["GWAS", "Multi-ancestry", "Method benchmarking", "Heritability"],
+      "details": {
+        "context": "",
+        "role": "",
+        "methods": [],
+        "outcomes": [],
+        "publications": ["nicotine-dependence"],
+        "media": []
+      }
+    },
+    {
+      "slug": "sickle-cell",
+      "number": "05",
+      "kicker": "Cohort genomics",
+      "title": "Sickle cell disease cohorts",
+      "summary": "Clinical and genetic ancestry profiling in a large multi-centre Brazilian sickle cell disease cohort, and the genetic predictors of its complications.",
+      "tags": ["Sickle cell disease", "Genetic ancestry", "Clinical genomics"],
       "details": {
         "context": "",
         "role": "",
@@ -105,18 +161,130 @@
         "publications": [],
         "media": []
       }
+    },
+    {
+      "slug": "oncology-pharmacology",
+      "number": "06",
+      "kicker": "Preclinical & translational",
+      "title": "Oncology pharmacogenomics",
+      "summary": "Pediatric Preclinical Testing Consortium evaluations of targeted agents in childhood leukemia and solid tumours, plus immunogenomic profiling of response to checkpoint inhibitors and high-dose IL-2.",
+      "tags": ["Pediatric oncology", "Xenograft models", "Immunogenomics", "Response prediction"],
+      "details": {
+        "context": "",
+        "role": "",
+        "methods": [],
+        "outcomes": [],
+        "publications": ["venetoclax"],
+        "media": []
+      }
+    },
+    {
+      "slug": "genetical-genomics",
+      "number": "07",
+      "kicker": "Where it started",
+      "title": "Genetical genomics",
+      "summary": "Doctoral and early work inferring interaction networks between species — cross-species eQTL mapping of the plant–nematode symbiosis, genome annotation, and molecular phylogenetics.",
+      "tags": ["eQTL mapping", "Comparative genomics", "Phylogenetics"],
+      "details": {
+        "context": "",
+        "role": "",
+        "methods": [],
+        "outcomes": [],
+        "publications": ["eqtl-symbiosis"],
+        "media": []
+      }
+    }
+  ],
+  "publications": [
+    {
+      "id": "rbc-omics-hemolysis",
+      "authors": "Kanias et al.",
+      "title": "Ethnicity, sex, and age are determinants of red blood cell storage and stress hemolysis: results of the REDS-III RBC-Omics study",
+      "venue": "Blood Advances",
+      "year": "2017",
+      "citations": "251",
+      "firstAuthor": false
+    },
+    {
+      "id": "venetoclax",
+      "authors": "Khaw et al.",
+      "title": "Venetoclax responses of pediatric ALL xenografts reveal sensitivity of MLL-rearranged leukemia",
+      "venue": "Blood",
+      "year": "2016",
+      "citations": "208",
+      "firstAuthor": false
+    },
+    {
+      "id": "storage-metabolism",
+      "authors": "D'Alessandro et al.",
+      "title": "Donor sex, age and ethnicity impact stored red blood cell antioxidant metabolism through mechanisms in part explained by glucose 6-phosphate dehydrogenase levels and activity",
+      "venue": "Haematologica",
+      "year": "2021",
+      "citations": "168",
+      "firstAuthor": false
+    },
+    {
+      "id": "nicotine-dependence",
+      "authors": "Quach et al.",
+      "title": "Expanding the genetic architecture of nicotine dependence and its shared genetics with multiple traits",
+      "venue": "Nature Communications",
+      "year": "2020",
+      "citations": "141",
+      "firstAuthor": false
+    },
+    {
+      "id": "hemolysis-gwas",
+      "authors": "Page et al.",
+      "title": "Multiple-ancestry genome-wide association study identifies 27 loci associated with measures of hemolysis following blood storage",
+      "venue": "The Journal of Clinical Investigation",
+      "year": "2021",
+      "citations": "107",
+      "firstAuthor": false
+    },
+    {
+      "id": "als-stratification",
+      "authors": "Kueffner et al.",
+      "title": "Stratification of amyotrophic lateral sclerosis patients: a crowdsourcing approach",
+      "venue": "Scientific Reports",
+      "year": "2019",
+      "citations": "88",
+      "firstAuthor": false
+    },
+    {
+      "id": "genotyping-array",
+      "authors": "Guo et al.",
+      "title": "Development and evaluation of a transfusion medicine genome wide genotyping array",
+      "venue": "Transfusion",
+      "year": "2019",
+      "citations": "64",
+      "firstAuthor": true
+    },
+    {
+      "id": "eqtl-symbiosis",
+      "authors": "Guo et al.",
+      "title": "Networks underpinning symbiosis revealed through cross-species eQTL mapping",
+      "venue": "Genetics",
+      "year": "2017",
+      "citations": "24",
+      "firstAuthor": true
+    },
+    {
+      "id": "brain-organoids",
+      "authors": "Kshirsagar et al.",
+      "title": "Multi-region brain organoids integrating cerebral, mid-hindbrain, and endothelial systems",
+      "venue": "Advanced Science",
+      "year": "2025",
+      "citations": "19",
+      "firstAuthor": false
     }
   ],
   "teaching": [
     {
       "period": "2023–2024",
       "organization": "Cary Chinese School",
-      "program": "Course program",
-      "roles": [
-        "Curriculum Designer",
-        "Instructor"
-      ],
-      "summary": "Designed the complete course and served as an instructor.",
+      "program": "Academic year course",
+      "roles": ["Curriculum Designer", "Instructor"],
+      "summary": "Designed the full course and taught it across the academic year.",
       "audience": "",
       "format": "",
       "curriculum": [],
@@ -127,11 +295,8 @@
       "period": "2025",
       "organization": "RTAI",
       "program": "Summer Camp",
-      "roles": [
-        "Curriculum Designer",
-        "Instructor"
-      ],
-      "summary": "Designed the complete summer camp course and taught the program.",
+      "roles": ["Curriculum Designer", "Instructor"],
+      "summary": "Built the summer camp curriculum from scratch and taught the full program.",
       "audience": "",
       "format": "",
       "curriculum": [],
@@ -142,11 +307,8 @@
       "period": "2026",
       "organization": "CAST",
       "program": "Summer Camp",
-      "roles": [
-        "Curriculum Designer",
-        "Instructor"
-      ],
-      "summary": "Designed the complete summer camp course and taught the program.",
+      "roles": ["Curriculum Designer", "Instructor"],
+      "summary": "Designed and delivered the summer camp program end to end.",
       "audience": "",
       "format": "",
       "curriculum": [],
@@ -157,11 +319,8 @@
       "period": "2026",
       "organization": "RTAI",
       "program": "AI Saturdays",
-      "roles": [
-        "Curriculum Designer",
-        "Instructor"
-      ],
-      "summary": "Designed the complete AI Saturdays course and served as an instructor.",
+      "roles": ["Curriculum Designer", "Instructor"],
+      "summary": "Designed the AI Saturdays course and taught the sessions.",
       "audience": "",
       "format": "",
       "curriculum": [],
@@ -172,27 +331,30 @@
   "leadership": [
     {
       "organization": "RTAI",
+      "chapter": "",
       "role": "Vice President",
       "category": "Technology & education",
-      "summary": "Volunteer leadership supporting a community centered on technology and learning.",
+      "summary": "Volunteer leadership for a community built around technology education and hands-on learning.",
       "term": "",
       "contributions": [],
       "outcomes": []
     },
     {
       "organization": "SAPA",
+      "chapter": "",
       "role": "IT Director",
       "category": "Scientific community",
-      "summary": "Volunteer technology leadership in support of a professional scientific community.",
+      "summary": "Volunteer technology leadership for a professional association of scientists and pharmaceutical professionals.",
       "term": "",
       "contributions": [],
       "outcomes": []
     },
     {
       "organization": "CASTNC",
+      "chapter": "",
       "role": "President",
       "category": "Community leadership",
-      "summary": "Volunteer leadership serving a North Carolina science and technology community.",
+      "summary": "Volunteer leadership of a North Carolina association for science and technology professionals.",
       "term": "",
       "contributions": [],
       "outcomes": []
@@ -202,18 +364,19 @@
       "chapter": "North Carolina Chapter",
       "role": "Vice President",
       "category": "Alumni community",
-      "summary": "Volunteer leadership helping connect and serve the university’s alumni community in North Carolina.",
+      "summary": "Volunteer leadership connecting and serving the university's alumni community across North Carolina.",
       "term": "",
       "contributions": [],
       "outcomes": []
     }
   ],
   "about": {
-    "eyebrow": "One practice, three settings",
+    "eyebrow": "One method, three settings",
     "headline": "Researcher. Course builder. Community organizer.",
     "paragraphs": [
-      "Across research, classrooms, and volunteer organizations, I’m drawn to the same challenge: bringing structure to complexity and helping people learn, build, and contribute.",
-      "This site is designed to grow with the work. Research case studies can expand with methods and publications; course stories can add curricula and learner outcomes; leadership roles can document initiatives and community impact."
+      "My research career has moved from plant and nematode genomes to human population genetics, from transfusion medicine to neurodegeneration. The through-line is method rather than organism: define the measurement carefully, respect what the data can and cannot support, and make the analysis reproducible by someone else.",
+      "The same instinct shows up outside the lab. Designing a course means deciding what a learner should be able to do at the end and building the shortest honest path there. Running a volunteer organization means the same work applied to people and process instead of data.",
+      "This site is built to grow with the work: research themes can expand into methods and outcomes, courses into curricula and learner results, and service roles into documented initiatives."
     ]
   }
 }

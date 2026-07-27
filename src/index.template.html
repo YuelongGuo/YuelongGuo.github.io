@@ -3,11 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f4f1e8">
+    <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#12161a" media="(prefers-color-scheme: dark)">
     <meta name="description" content="%%DESCRIPTION%%">
 
     <title>%%TITLE%%</title>
     <link rel="canonical" href="%%CANONICAL_URL%%">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
     <link rel="stylesheet" href="assets/css/main.css">
 
     <meta property="og:type" content="website">
@@ -15,7 +20,7 @@
     <meta property="og:description" content="%%DESCRIPTION%%">
     <meta property="og:url" content="%%CANONICAL_URL%%">
     <meta property="og:image" content="%%SOCIAL_IMAGE%%">
-    <meta property="og:image:alt" content="%%PROFILE_NAME%% — Research, Education, Community">
+    <meta property="og:image:alt" content="%%PROFILE_NAME%% — research, education, community">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="%%TITLE%%">
     <meta name="twitter:description" content="%%DESCRIPTION%%">
@@ -32,157 +37,201 @@
     <header class="site-header" data-site-header>
       <div class="shell nav-shell">
         <a class="wordmark" href="#top" aria-label="%%PROFILE_NAME%%, home">
-          <span class="wordmark-mark" aria-hidden="true">YG</span>
+          <span class="wordmark-mark" aria-hidden="true">%%PROFILE_INITIALS%%</span>
           <span class="wordmark-name">%%PROFILE_SHORT_NAME%%</span>
         </a>
 
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
-          <span>Menu</span>
+          <span class="menu-toggle-text">Menu</span>
           <span class="menu-toggle-lines" aria-hidden="true"></span>
         </button>
 
         <nav id="site-navigation" class="site-nav" aria-label="Primary navigation">
-          <a href="#research">Research</a>
-          <a href="#teaching">Teaching</a>
-          <a href="#leadership">Leadership</a>
+          <a href="#research">Science</a>
+          <a href="#teaching">Education</a>
+          <a href="#leadership">Community</a>
           <a href="#about">About</a>
-          <a class="nav-external" href="%%GITHUB_URL%%" target="_blank" rel="noreferrer">
-            GitHub <span aria-hidden="true">↗</span>
+          <a class="nav-external" href="%%SCHOLAR_URL%%" target="_blank" rel="noreferrer">
+            Scholar <span aria-hidden="true">↗</span>
           </a>
         </nav>
       </div>
     </header>
 
     <main id="main">
-      <section id="top" class="hero shell" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow reveal">%%PROFILE_EYEBROW%%</p>
-          <h1 id="hero-title" class="hero-title reveal">
-            <span>Turning complex signals</span>
-            <em>into shared progress.</em>
-          </h1>
-          <p class="hero-intro reveal">%%PROFILE_INTRODUCTION%%</p>
+      <section id="top" class="hero" aria-labelledby="hero-title">
+        <div class="shell hero-shell">
+          <div class="hero-copy">
+            <p class="eyebrow reveal">%%PROFILE_EYEBROW%%</p>
+            <h1 id="hero-title" class="hero-title reveal">%%PROFILE_NAME%%</h1>
+            %%AFFILIATION_BLOCK%%
+            <p class="hero-role reveal">%%PROFILE_ROLE%%</p>
+            <p class="hero-intro reveal">%%PROFILE_INTRODUCTION%%</p>
 
-          <div class="hero-actions reveal">
-            <a class="button button-primary" href="#research">Explore the work</a>
-            <a class="button button-text" href="#teaching">
-              See the courses <span aria-hidden="true">↓</span>
-            </a>
+            <div class="hero-actions reveal">
+              <a class="button button-primary" href="#research">Contributions to science</a>
+              <a class="button button-quiet" href="#teaching">Education &amp; community</a>
+            </div>
           </div>
+
+          <aside class="hero-card reveal" aria-label="Profile record">
+            <p class="hero-card-title">Record</p>
+            <dl class="hero-card-list">
+              <div>
+                <dt>Based in</dt>
+                <dd>%%PROFILE_LOCATION%%</dd>
+              </div>
+              <div>
+                <dt>Publication years</dt>
+                <dd>%%YEAR_SPAN%%</dd>
+              </div>
+              <div>
+                <dt>Indexed works</dt>
+                <dd>%%INDEXED_WORKS%%</dd>
+              </div>
+            </dl>
+
+            <div class="hero-card-links">
+              <a class="link-row" href="%%SCHOLAR_URL%%" target="_blank" rel="noreferrer">
+                <span class="link-row-key">Scholar</span>
+                <span class="link-row-value">Publication record <span aria-hidden="true">↗</span></span>
+              </a>
+              <a class="link-row" href="%%GITHUB_URL%%" target="_blank" rel="noreferrer">
+                <span class="link-row-key">GitHub</span>
+                <span class="link-row-value">Code &amp; teaching material <span aria-hidden="true">↗</span></span>
+              </a>
+              %%EMAIL_ROW%%
+            </div>
+          </aside>
         </div>
 
-        <aside class="signal-panel reveal" aria-label="Areas of work">
-          <div class="signal-field" aria-hidden="true">
-            <span class="signal-orbit signal-orbit-one"></span>
-            <span class="signal-orbit signal-orbit-two"></span>
-            <span class="signal-dot signal-dot-one"></span>
-            <span class="signal-dot signal-dot-two"></span>
-            <span class="signal-dot signal-dot-three"></span>
-          </div>
-
-          <p class="signal-label">Signals → Service</p>
-          <ol class="signal-list">
-            %%SIGNAL_MAP%%
-          </ol>
-        </aside>
-
-        <dl class="hero-stats reveal">
-          %%STATS%%
-        </dl>
+        <div class="shell">
+          <dl class="hero-stats reveal">
+            %%STATS%%
+          </dl>
+        </div>
       </section>
 
-      <section class="orientation section-block" aria-labelledby="orientation-title">
+      <section id="research" class="science" aria-labelledby="science-title">
         <div class="shell">
           <div class="section-heading reveal">
-            <p class="section-index">A portfolio in three parts</p>
-            <h2 id="orientation-title">Science, learning, and service reinforce one another.</h2>
-          </div>
-
-          <div class="pillar-grid">
-            %%PILLARS%%
-          </div>
-        </div>
-      </section>
-
-      <section id="research" class="research section-block" aria-labelledby="research-title">
-        <div class="shell">
-          <div class="section-heading section-heading-split reveal">
-            <div>
-              <p class="section-index">01 · Research</p>
-              <h2 id="research-title">Following the signal.</h2>
-            </div>
+            <p class="section-index">01 — Contributions to science</p>
+            <h2 id="science-title">Measurement, made into evidence.</h2>
             <p class="section-deck">
-              Biomedical questions become useful when the data, context, and analytical choices stay connected.
+              Seven threads across quantitative imaging, proteomic biomarkers, and human genetics at
+              population scale — from a doctoral question about two interacting genomes to biomarker
+              work in neurodegeneration.
             </p>
           </div>
+        </div>
 
-          <div class="research-grid">
+        <div class="metrics-band">
+          <div class="shell">
+            <div class="metrics-head reveal">
+              <h3 class="metrics-title">Summary of contribution</h3>
+              <p class="metrics-source">
+                <a href="%%SCHOLAR_URL%%" target="_blank" rel="noreferrer">%%SCHOLAR_SOURCE%% <span aria-hidden="true">↗</span></a>
+                <span class="metrics-retrieved">retrieved %%SCHOLAR_RETRIEVED%%</span>
+              </p>
+            </div>
+
+            <div class="metrics-layout">
+              <div class="metrics-grid reveal">
+                %%METRICS%%
+              </div>
+
+              <figure class="chart-figure reveal">
+                <figcaption class="chart-head">
+                  <h4 id="chart-title" class="chart-title">%%CHART_TITLE%%</h4>
+                </figcaption>
+                <div class="chart-scroll" tabindex="0" role="group" aria-label="Citation distribution chart, scrollable">
+                  %%CHART%%
+                </div>
+                <p id="chart-caption" class="chart-caption">%%CHART_CAPTION%%</p>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="shell">
+          <div class="subsection-heading reveal">
+            <h3 id="themes-title">Research threads</h3>
+            <p>Ordered by proximity to current work, not by citation count.</p>
+          </div>
+
+          <div class="theme-list" aria-labelledby="themes-title">
             %%RESEARCH%%
           </div>
+
+          <div class="subsection-heading subsection-heading-spaced reveal">
+            <h3 id="publications-title">Selected publications</h3>
+            <p>Nine of %%INDEXED_WORKS%% indexed works, chosen to span the threads above.</p>
+          </div>
+
+          <ol class="publication-list" aria-labelledby="publications-title">
+            %%PUBLICATIONS%%
+          </ol>
+
+          <p class="publication-footnote reveal">
+            <a class="button button-quiet" href="%%SCHOLAR_URL%%" target="_blank" rel="noreferrer">
+              Full publication record on Google Scholar <span aria-hidden="true">↗</span>
+            </a>
+          </p>
         </div>
       </section>
 
-      <section id="teaching" class="teaching section-block" aria-labelledby="teaching-title">
+      <section id="teaching" class="education" aria-labelledby="education-title">
         <div class="shell">
-          <div class="section-heading section-heading-split reveal">
-            <div>
-              <p class="section-index">02 · Teaching & curriculum</p>
-              <h2 id="teaching-title">Designing the whole learning journey.</h2>
-            </div>
+          <div class="section-heading reveal">
+            <p class="section-index">02 — Volunteer education</p>
+            <h2 id="education-title">Designing the path, then walking it.</h2>
             <p class="section-deck">
-              The role goes beyond instruction: each program begins with curriculum design and continues into the classroom.
+              Every program below was built as well as taught: scope, sequence, and materials first,
+              then the classroom. All of it is volunteer work.
             </p>
           </div>
 
-          <div class="teaching-layout">
-            <aside class="teaching-statement reveal">
-              <p class="statement-kicker">Course design + instruction</p>
-              <blockquote>
-                “I don’t just teach a course. I design the path through it.”
-              </blockquote>
-              <p>
-                Four programs, built for their learning setting and taught from start to finish.
-              </p>
-            </aside>
-
-            <ol class="teaching-timeline">
-              %%TEACHING%%
-            </ol>
-          </div>
+          <ol class="course-list">
+            %%TEACHING%%
+          </ol>
         </div>
       </section>
 
-      <section id="leadership" class="leadership section-block" aria-labelledby="leadership-title">
+      <section id="leadership" class="community" aria-labelledby="community-title">
         <div class="shell">
-          <div class="section-heading section-heading-split reveal">
-            <div>
-              <p class="section-index">03 · Leadership & service</p>
-              <h2 id="leadership-title">Building the communities around the work.</h2>
-            </div>
+          <div class="section-heading reveal">
+            <p class="section-index">03 — Community &amp; service</p>
+            <h2 id="community-title">Organizations run on volunteers.</h2>
             <p class="section-deck">
-              Volunteer roles across technology, science, education, and alumni communities in North Carolina.
+              Elected and appointed volunteer roles across scientific, technology, educational, and
+              alumni communities in North Carolina.
             </p>
           </div>
 
-          <div class="leadership-grid">
+          <div class="service-grid">
             %%LEADERSHIP%%
           </div>
         </div>
       </section>
 
-      <section id="about" class="about section-block" aria-labelledby="about-title">
+      <section id="about" class="about" aria-labelledby="about-title">
         <div class="shell about-grid">
           <div class="about-heading reveal">
-            <p class="section-index">04 · About</p>
-            <p class="about-eyebrow">%%ABOUT_EYEBROW%%</p>
+            <p class="section-index">04 — About</p>
             <h2 id="about-title">%%ABOUT_HEADLINE%%</h2>
+            <p class="about-eyebrow">%%ABOUT_EYEBROW%%</p>
           </div>
 
           <div class="about-copy reveal">
             %%ABOUT_PARAGRAPHS%%
-            <a class="button button-text about-link" href="%%GITHUB_URL%%" target="_blank" rel="noreferrer">
-              Continue on GitHub <span aria-hidden="true">↗</span>
-            </a>
+            <div class="about-actions">
+              <a class="button button-quiet" href="%%SCHOLAR_URL%%" target="_blank" rel="noreferrer">
+                Google Scholar <span aria-hidden="true">↗</span>
+              </a>
+              <a class="button button-quiet" href="%%GITHUB_URL%%" target="_blank" rel="noreferrer">
+                GitHub <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -190,9 +239,9 @@
 
     <footer class="site-footer">
       <div class="shell footer-grid">
-        <div>
+        <div class="footer-identity">
           <p class="footer-name">%%PROFILE_NAME%%</p>
-          <p class="footer-note">Research · Education · Community</p>
+          <p class="footer-note">Science · Education · Community</p>
         </div>
 
         <div class="footer-meta">
